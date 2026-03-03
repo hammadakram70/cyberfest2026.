@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Fest 2026 — Powered by Tech Hierarchy</title>
+<meta name="description" content="Cyber Fest 2026 — Pakistan's Premier Cybersecurity Event at Garrison University Lahore. Powered by Tech Hierarchy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#00F5FF;--s:#7B2FBE;--a:#FF006E;--bg:#050A14;--bc:rgba(255,255,255,0.03);--bch:rgba(0,245,255,0.06);--t:#FFF;--m:#A0AEC0;--br:rgba(0,245,255,0.15);--glow:0 0 20px rgba(0,245,255,0.4);--fd:'Orbitron',monospace;--fb:'Inter',sans-serif;--tr:all 0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t);font-family:var(--fb);overflow-x:hidden;cursor:none;line-height:1.6;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px;}
+
+#CUR{position:fixed;width:10px;height:10px;background:var(--p);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 10px var(--p);will-change:left,top;}
+#CURR{position:fixed;width:34px;height:34px;border:1.5px solid rgba(0,245,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;will-change:left,top;}
+.ch #CUR{width:16px;height:16px;background:var(--a);box-shadow:0 0 15px var(--a);}
+.ch #CURR{width:50px;height:50px;border-color:rgba(255,0,110,0.5);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s;}
+nav.sc{background:rgba(5,10,20,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--br);}
+.nlogo{font-family:var(--fd);font-size:1rem;font-weight:900;letter-spacing:.08em;color:var(--p);text-decoration:none;text-shadow:var(--glow);}
+.nlogo span{color:rgba(255,255,255,0.4);font-weight:400;}
+.nlinks{display:flex;align-items:center;gap:1.75rem;list-style:none;}
+.nlinks a{color:var(--m);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .25s;position:relative;}
+.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--p);transform:scaleX(0);transition:transform .3s;}
+.nlinks a:hover{color:var(--p);}.nlinks a:hover::after{transform:scaleX(1);}
+.breg{background:linear-gradient(135deg,var(--p),var(--s))!important;color:#fff!important;padding:.45rem 1.25rem!important;border-radius:4px;font-family:var(--fd);font-size:.7rem!important;font-weight:700;letter-spacing:.1em;box-shadow:0 0 15px rgba(0,245,255,.25);transition:var(--tr);}
+.breg:hover{box-shadow:0 0 30px rgba(0,245,255,.5);transform:translateY(-1px) scale(1.03);}
+.breg::after{display:none!important;}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hbg span{display:block;width:24px;height:2px;background:var(--p);border-radius:2px;transition:var(--tr);}
+.mnav{position:fixed;top:68px;left:0;right:0;background:rgba(5,10,20,.98);backdrop-filter:blur(20px);padding:2rem;display:none;flex-direction:column;gap:1.5rem;z-index:999;border-bottom:1px solid var(--br);}
+.mnav.open{display:flex;}
+.mnav a{color:var(--m);text-decoration:none;font-size:1rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;transition:color .2s;}
+.mnav a:hover{color:var(--p);}
+
+#home{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:68px 2rem 2rem;}
+.hbgg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(123,47,190,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 85% 85%,rgba(0,245,255,.12) 0%,transparent 50%),radial-gradient(ellipse 40% 30% at 15% 65%,rgba(255,0,110,.08) 0%,transparent 50%),var(--bg);}
+.gbg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,245,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.sc2{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,245,255,.012) 2px,rgba(0,245,255,.012) 4px);pointer-events:none;}
+#PTS{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.pt{position:absolute;border-radius:50%;animation:ptA linear infinite;}
+@keyframes ptA{from{transform:translateY(100vh);opacity:0;}10%{opacity:1;}90%{opacity:.7;}to{transform:translateY(-10vh);opacity:0;}}
+.hcon{position:relative;z-index:2;text-align:center;max-width:900px;}
+.hbdg{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid var(--br);border-radius:50px;background:rgba(0,245,255,.05);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--p);margin-bottom:1.5rem;animation:fdd .8s ease both;}
+.bdot{width:6px;height:6px;background:var(--a);border-radius:50%;animation:pls 2s infinite;}
+@keyframes pls{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+.htit{font-family:var(--fd);font-size:clamp(2.8rem,8vw,6rem);font-weight:900;line-height:1.0;letter-spacing:-.02em;margin-bottom:.5rem;animation:fdu .8s .2s ease both;}
+.htit .tc{color:var(--p);text-shadow:0 0 40px rgba(0,245,255,.5);}
+.hsub{font-family:var(--fd);font-size:clamp(.7rem,2vw,.95rem);letter-spacing:.25em;color:var(--s);text-transform:uppercase;margin-bottom:1.5rem;animation:fdu .8s .3s ease both;}
+.htag{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--m);max-width:580px;margin:0 auto 2.5rem;font-weight:300;animation:fdu .8s .4s ease both;}
+.htag em{color:var(--p);font-style:normal;}
+.cdw{margin-bottom:2.5rem;animation:fdu .8s .5s ease both;}
+.cdl{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--m);margin-bottom:.875rem;}
+.cd{display:flex;align-items:center;justify-content:center;gap:.4rem;flex-wrap:wrap;}
+.cdu{display:flex;flex-direction:column;align-items:center;}
+.cdn{font-family:var(--fd);font-size:clamp(2rem,6vw,4.5rem);font-weight:900;color:var(--p);text-shadow:var(--glow);background:rgba(0,245,255,.05);border:1px solid rgba(0,245,255,.2);padding:.5rem 1rem;border-radius:8px;min-width:85px;text-align:center;letter-spacing:.05em;}
+.cds{font-family:var(--fd);font-size:clamp(1.5rem,4vw,3.5rem);color:var(--p);font-weight:900;opacity:.6;padding-bottom:1.2rem;animation:blnk 1s step-end infinite;}
+@keyframes blnk{0%,100%{opacity:.6;}50%{opacity:.15;}}
+.cdll{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-top:.4rem;}
+.hcta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fdu .8s .6s ease both;}
+.bp{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:linear-gradient(135deg,var(--p),var(--s));color:#fff;text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:var(--tr);box-shadow:0 0 20px rgba(0,245,255,.3);border:none;cursor:pointer;}
+.bp:hover{box-shadow:0 0 40px rgba(0,245,255,.6),0 8px 30px rgba(0,0,0,.4);transform:translateY(-2px) scale(1.03);}
+.bo{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:transparent;color:var(--p);text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:1px solid rgba(0,245,255,.35);transition:var(--tr);cursor:pointer;}
+.bo:hover{background:rgba(0,245,255,.07);border-color:var(--p);box-shadow:var(--glow);transform:translateY(-2px);}
+.sah{position:absolute;bottom:1.75rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--m);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;z-index:2;animation:fdi 1s 1.5s ease both;}
+.sabl{width:1px;height:40px;background:linear-gradient(var(--p),transparent);animation:shrk 1.5s ease-in-out infinite;}
+@keyframes shrk{0%,100%{transform:scaleY(1);opacity:1;}50%{transform:scaleY(.4);opacity:.3;}}
+
+section{position:relative;}
+.SP{padding:6rem 2rem;}
+.CON{max-width:1100px;margin:0 auto;}
+.SH{text-align:center;margin-bottom:4rem;}
+.EY{display:inline-block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);margin-bottom:1rem;padding:.25rem .8rem;border:1px solid rgba(0,245,255,.2);border-radius:50px;background:rgba(0,245,255,.05);}
+.STT{font-family:var(--fd);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.15;margin-bottom:.75rem;letter-spacing:-.02em;}
+.STT .hl{color:var(--p);text-shadow:0 0 20px rgba(0,245,255,.3);}
+.SD{color:var(--m);max-width:580px;margin:0 auto;font-size:.98rem;font-weight:300;}
+.DV{width:60px;height:2px;background:linear-gradient(90deg,var(--p),var(--s));margin:1.25rem auto;border-radius:2px;}
+
+#about{background:linear-gradient(180deg,var(--bg) 0%,rgba(123,47,190,.07) 50%,var(--bg) 100%);}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
+.ac{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2.5rem;position:relative;overflow:hidden;transition:var(--tr);}
+.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--s));opacity:0;transition:opacity .3s;}
+.ac:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.ac:hover::before{opacity:1;}
+.aci{font-size:2.5rem;margin-bottom:1.5rem;display:block;}
+.act{font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--p);margin-bottom:1rem;letter-spacing:.05em;}
+.acp{color:var(--m);font-size:.93rem;line-height:1.8;}
+.srow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem;}
+.sbox{text-align:center;padding:2rem 1rem;background:var(--bc);border:1px solid var(--br);border-radius:10px;transition:var(--tr);}
+.sbox:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-3px);}
+.sbn{font-family:var(--fd);font-size:2.5rem;font-weight:900;color:var(--p);text-shadow:var(--glow);display:block;}
+.sbl{font-size:.72rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;}
+
+#venue{background:rgba(5,10,20,.96);}
+.vc{background:var(--bc);border:1px solid var(--br);border-radius:14px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.vlb{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--p);margin-bottom:.4rem;}
+.vnm{font-family:var(--fd);font-size:1.75rem;font-weight:700;margin-bottom:1.5rem;line-height:1.3;}
+.vls{display:flex;flex-direction:column;gap:1rem;}
+.vi{display:flex;align-items:flex-start;gap:.75rem;}
+.vii{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
+.vit{color:var(--m);font-size:.93rem;}
+.vit strong{color:var(--t);display:block;margin-bottom:.15rem;}
+.vmap{background:rgba(0,245,255,.03);border:1px solid var(--br);border-radius:12px;height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--m);font-size:.9rem;}
+.vpu{width:60px;height:60px;border-radius:50%;border:2px solid var(--p);display:flex;align-items:center;justify-content:center;font-size:1.5rem;animation:mpu 2s infinite;}
+@keyframes mpu{0%,100%{box-shadow:0 0 0 0 rgba(0,245,255,.4);}50%{box-shadow:0 0 0 18px rgba(0,245,255,0);}}
+
+#expect{background:linear-gradient(180deg,var(--bg) 0%,rgba(255,0,110,.04) 50%,var(--bg) 100%);}
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.ec{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2rem;text-align:center;transition:var(--tr);position:relative;overflow:hidden;}
+.ec::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,245,255,.06) 0%,transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none;}
+.ec:hover{border-color:rgba(0,245,255,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.ec:hover::after{opacity:1;}
+.eci{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.ect{font-family:var(--fd);font-size:.9rem;font-weight:700;color:var(--p);margin-bottom:.75rem;letter-spacing:.05em;}
+.ecp{color:var(--m);font-size:.875rem;line-height:1.7;}
+
+#history{background:var(--bg);}
+.tl{position:relative;max-width:680px;margin:0 auto;padding-left:2rem;}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--p) 20%,var(--s) 80%,transparent);}
+.ti{position:relative;padding:0 0 3rem 2rem;}
+.ti::before{content:'';position:absolute;left:-4px;top:6px;width:9px;height:9px;background:var(--p);border-radius:50%;box-shadow:0 0 10px var(--p);}
+.tiy{font-family:var(--fd);font-size:.72rem;color:var(--p);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.4rem;}
+.tit{font-size:1.1rem;font-weight:600;margin-bottom:.5rem;}
+.tid{color:var(--m);font-size:.9rem;line-height:1.75;}
+
+#speakers{background:linear-gradient(180deg,var(--bg) 0%,rgba(123,47,190,.1) 50%,var(--bg) 100%);}
+.spgr{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;justify-items:center;}
+.spc{background:var(--bc);border:1px solid var(--br);border-radius:16px;padding:2.5rem 2rem;text-align:center;width:100%;max-width:310px;transition:var(--tr);text-decoration:none;display:block;position:relative;overflow:hidden;}
+.spc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--s));transform:scaleX(0);transition:transform .35s;}
+.spc:hover{border-color:rgba(0,245,255,.4);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 30px rgba(0,245,255,.08);background:var(--bch);}
+.spc:hover::before{transform:scaleX(1);}
+.spav{width:110px;height:110px;border-radius:50%;border:2px solid var(--br);margin:0 auto 1.5rem;background:linear-gradient(135deg,rgba(0,245,255,.1),rgba(123,47,190,.25));display:flex;align-items:center;justify-content:center;transition:var(--tr);}
+.spc:hover .spav{border-color:var(--p);box-shadow:0 0 20px rgba(0,245,255,.3);}
+.spin{font-family:var(--fd);font-size:1.6rem;font-weight:700;color:var(--p);}
+.spnm{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.4rem;letter-spacing:.03em;}
+.sprl{font-size:.8rem;color:var(--m);letter-spacing:.05em;margin-bottom:1.25rem;}
+.spli{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--p);letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;}
+.spc:hover .spli{opacity:1;transform:translateY(0);}
+
+#sponsors{background:var(--bg);}
+.spong{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.spnc{background:var(--bc);border:1px solid var(--br);border-radius:10px;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;transition:var(--tr);}
+.spnc:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.3);}
+.spic{width:70px;height:70px;background:linear-gradient(135deg,rgba(0,245,255,.1),rgba(123,47,190,.2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:1px solid var(--br);}
+.spnn{font-size:.85rem;color:var(--m);font-weight:500;text-align:center;}
+.spti{font-size:.62rem;color:var(--p);letter-spacing:.18em;text-transform:uppercase;}
+
+#contact{background:linear-gradient(180deg,var(--bg) 0%,rgba(3,4,10,1) 100%);border-top:1px solid var(--br);}
+.cgr{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;}
+.cin h3{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;color:var(--p);}
+.cit{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem;color:var(--m);font-size:.93rem;}
+.cic{font-size:1.1rem;flex-shrink:0;}
+.SOC{display:flex;gap:.875rem;margin-top:2rem;flex-wrap:wrap;}
+.SL{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--bc);border:1px solid var(--br);border-radius:8px;color:var(--m);text-decoration:none;transition:var(--tr);}
+.SL:hover{border-color:var(--p);color:var(--p);background:rgba(0,245,255,.05);box-shadow:var(--glow);transform:translateY(-2px);}
+.cfrm h3{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;color:var(--p);}
+.tbox{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2rem;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;color:var(--m);font-size:.88rem;}
+.fbot{border-top:1px solid var(--br);padding-top:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.flogo{font-family:var(--fd);font-size:1rem;font-weight:900;color:var(--p);text-shadow:var(--glow);}
+.fcop{color:var(--m);font-size:.82rem; text-align: center;}
+.fls{display:flex;gap:2rem;}
+.fls a{color:var(--m);text-decoration:none;font-size:.82rem;transition:color .2s;text-align: center;}
+.fls a:hover{color:var(--p);}
+
+.FU{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.FU.V{opacity:1;transform:translateY(0);}
+.FL{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease;}
+.FL.V{opacity:1;transform:translateX(0);}
+.STG>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.STG>.V{opacity:1;transform:translateY(0);}
+@keyframes fdd{from{opacity:0;transform:translateY(-18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fdu{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fdi{from{opacity:0;}to{opacity:1;}}
+
+/* CREATOR LINK */
+.creator-link{background:none;border:none;color:var(--p);cursor:pointer;font-family:var(--fb);font-size:.75rem;font-weight:600;padding:0;text-decoration:underline;text-decoration-color:rgba(0,245,255,.4);text-underline-offset:2px;transition:color .2s,text-shadow .2s;}
+.creator-link:hover{color:#fff;text-shadow:var(--glow);}
+
+/* MODAL OVERLAY */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:linear-gradient(135deg,rgba(5,10,20,.98),rgba(20,10,40,.98));border:1px solid rgba(0,245,255,.25);border-radius:16px;padding:2.5rem;max-width:520px;width:100%;position:relative;transform:scale(.88) translateY(20px);transition:transform .35s cubic-bezier(0.34,1.56,0.64,1),opacity .3s ease;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(0,245,255,.08);}
+.modal-overlay.open .modal-box{transform:scale(1) translateY(0);opacity:1;}
+.modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(0,245,255,.2);border-radius:50%;color:var(--m);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr);line-height:1;}
+.modal-close:hover{background:rgba(255,0,110,.15);border-color:var(--a);color:var(--a);}
+.modal-avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--p);background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(123,47,190,.3));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.4rem;font-weight:900;color:var(--p);margin:0 auto 1.25rem;box-shadow:0 0 20px rgba(0,245,255,.2);}
+.modal-name{font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--p);text-align:center;margin-bottom:.25rem;text-shadow:var(--glow);}
+.modal-role{font-size:.8rem;color:var(--m);text-align:center;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem;}
+.modal-divider{width:40px;height:1px;background:linear-gradient(90deg,var(--p),var(--s));margin:.75rem auto 1.25rem;}
+.modal-section-title{font-family:var(--fd);font-size:.7rem;color:var(--p);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.6rem;}
+.modal-text{color:var(--m);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem;}
+.modal-contacts{display:flex;flex-direction:column;gap:.6rem;}
+.modal-contact-item{display:flex;align-items:center;gap:.75rem;color:var(--m);font-size:.9rem;}
+.modal-contact-item a{color:var(--p);text-decoration:none;transition:color .2s;}
+.modal-contact-item a:hover{color:#fff;}
+.mci{font-size:1rem;flex-shrink:0;}
+@media(max-width:480px){.modal-box{padding:2rem 1.5rem;}}
+
+@media(max-width:768px){.nlinks{display:none;}.hbg{display:flex;}.vc{grid-template-columns:1fr;}.egrid{grid-template-columns:1fr;}.spgr{grid-template-columns:1fr;justify-items:center;}.spong{grid-template-columns:repeat(2,1fr);}.cgr{grid-template-columns:1fr;gap:2rem;}.fbot{flex-direction:column;text-align:center;}.fls{justify-content:center;}}
+@media(max-width:480px){.SP{padding:4rem 1.25rem;}.srow{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div id="CUR"></div>
+<div id="CURR"></div>
+
+<div class="mnav" id="MNAV">
+  <a href="#home" onclick="CM()">Home</a>
+  <a href="#about" onclick="CM()">About</a>
+  <a href="#speakers" onclick="CM()">Speakers</a>
+  <a href="#sponsors" onclick="CM()">Sponsors</a>
+  <a href="#contact" onclick="CM()">Contact</a>
+  <a href="https://luma.com/73w5wnmw" target="_blank" class="breg" style="text-align:center;text-decoration:none;padding:.6rem 1.25rem;">Register Now</a>
+</div>
+
+<nav id="NAV">
+  <a href="#home" class="nlogo">CYBER<span>FEST</span> 2026</a>
+  <ul class="nlinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://luma.com/73w5wnmw" target="_blank" class="breg">Register Now</a></li>
+  </ul>
+  <div class="hbg" onclick="TM()"><span></span><span></span><span></span></div>
+</nav>
+
+<section id="home">
+  <div class="hbgg"></div><div class="gbg"></div><div class="sc2"></div>
+  <div id="PTS"></div>
+  <div class="hcon">
+    <div class="hbdg"><span class="bdot"></span>April 18, 2026 &bull; Garrison University, Lahore</div>
+    <h1 class="htit"><span class="tc">CYBER</span> FEST</h1>
+    <p class="hsub">Powered by Tech Hierarchy</p>
+    <p class="htag">Where <em>cybersecurity meets innovation</em> &mdash; shaping Pakistan&rsquo;s next generation of digital defenders, thinkers, and leaders.</p>
+    <div class="cdw">
+      <p class="cdl">Event Begins In</p>
+      <div class="cd">
+        <div class="cdu"><div class="cdn" id="DD">00</div><div class="cdll">Days</div></div>
+        <div class="cds">:</div>
+        <div class="cdu"><div class="cdn" id="DH">00</div><div class="cdll">Hours</div></div>
+        <div class="cds">:</div>
+        <div class="cdu"><div class="cdn" id="DM">00</div><div class="cdll">Minutes</div></div>
+        <div class="cds">:</div>
+        <div class="cdu"><div class="cdn" id="DS">00</div><div class="cdll">Seconds</div></div>
+      </div>
+    </div>
+    <div class="hcta">
+      <a href="https://luma.com/73w5wnmw" target="_blank" class="bp">&#9889; Register Now</a>
+      <a href="#about" class="bo">Explore &#8595;</a>
+    </div>
+  </div>
+  <div class="sah"><span>Scroll</span><div class="sabl"></div></div>
+</section>
+
+<section id="about" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Who We Are</span>
+      <h2 class="STT">About <span class="hl">Cyber Fest</span></h2>
+      <div class="DV"></div>
+      <p class="SD">Pakistan&rsquo;s premier cybersecurity event &mdash; connecting students, professionals, and innovators to build a safer digital future.</p>
+    </div>
+    <div class="agrid STG">
+      <div class="ac"><span class="aci">&#128737;</span><div class="act">About Cyber Fest</div><p class="acp">Cyber Fest is an annual cybersecurity event dedicated to empowering students and professionals with cutting-edge knowledge, hands-on experiences, and real-world insights. From capture-the-flag challenges to expert-led panels, Cyber Fest is where Pakistan&rsquo;s digital defenders come together to learn, compete, and grow.</p></div>
+      <div class="ac"><span class="aci">&#128640;</span><div class="act">About Tech Hierarchy</div><p class="acp">Tech Hierarchy is a student-led technology community committed to advancing digital literacy, cybersecurity awareness, and innovation across Pakistan. With a mission to bridge the gap between academia and industry, Tech Hierarchy hosts world-class events, workshops, and networking opportunities that shape tomorrow&rsquo;s tech leaders.</p></div>
+    </div>
+    <div class="srow STG">
+      <div class="sbox"><span class="sbn">500+</span><span class="sbl">Attendees</span></div>
+      <div class="sbox"><span class="sbn">10+</span><span class="sbl">Speakers</span></div>
+      <div class="sbox"><span class="sbn">3+</span><span class="sbl">Years Running</span></div>
+      <div class="sbox"><span class="sbn">20+</span><span class="sbl">Partners</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="venue" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Location</span>
+      <h2 class="STT">Event <span class="hl">Venue</span></h2>
+      <div class="DV"></div>
+    </div>
+    <div class="vc FU">
+      <div>
+        <p class="vlb">Hosting Venue</p>
+        <h3 class="vnm">Garrison University<br>Lahore Campus</h3>
+        <div class="vls">
+          <div class="vi"><span class="vii">&#128197;</span><div class="vit"><strong>Date</strong>April 18, 2026</div></div>
+          <div class="vi"><span class="vii">&#128336;</span><div class="vit"><strong>Time</strong>9:00 AM &mdash; 5:00 PM PKT</div></div>
+          <div class="vi"><span class="vii">&#128205;</span><div class="vit"><strong>Address</strong>Garrison University Lahore Campus, Lahore, Punjab, Pakistan</div></div>
+          <div class="vi"><span class="vii">&#127915;</span><div class="vit"><strong>Entry</strong>Open to All &mdash; Registration Required</div></div>
+        </div>
+      </div>
+      <div class="vmap">
+        <div class="vpu">&#128205;</div>
+        <span>Garrison University, Lahore</span>
+        <a href="https://maps.google.com/?q=Garrison+University+Lahore" target="_blank" class="bo" style="font-size:.72rem;padding:.55rem 1.2rem;">Open in Maps &#8599;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expect" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Experience</span>
+      <h2 class="STT">What to <span class="hl">Expect</span></h2>
+      <div class="DV"></div>
+      <p class="SD">A full-day immersive experience packed with knowledge, challenges, and connections.</p>
+    </div>
+    <div class="egrid STG">
+      <div class="ec"><span class="eci">&#127908;</span><div class="ect">Expert Keynotes</div><p class="ecp">Industry leaders share frontline insights, emerging threats, and the future of digital security across Pakistan and beyond.</p></div>
+      <div class="ec"><span class="eci">&#127937;</span><div class="ect">CTF Challenges</div><p class="ecp">Capture-the-Flag competitions testing your hacking skills, problem-solving, and cybersecurity knowledge in real-time.</p></div>
+      <div class="ec"><span class="eci">&#129309;</span><div class="ect">Networking</div><p class="ecp">Connect with students, professionals, mentors, and recruiters shaping Pakistan&rsquo;s digital future.</p></div>
+      <div class="ec"><span class="eci">&#128295;</span><div class="ect">Workshops</div><p class="ecp">Hands-on technical sessions covering penetration testing, ethical hacking, digital forensics, and more.</p></div>
+      <div class="ec"><span class="eci">&#127942;</span><div class="ect">Awards &amp; Recognition</div><p class="ecp">Top performers recognized with certificates, prizes, and opportunities for career advancement in cybersecurity.</p></div>
+      <div class="ec"><span class="eci">&#128161;</span><div class="ect">Panel Discussions</div><p class="ecp">Thought-provoking panels on AI-driven threats, cybersecurity policy, privacy, and secure digital infrastructure.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="history" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Our Journey</span>
+      <h2 class="STT">Event <span class="hl">History</span></h2>
+      <div class="DV"></div>
+      <p class="SD">From a small gathering to Pakistan&rsquo;s most anticipated cybersecurity event.</p>
+    </div>
+    <div class="tl">
+      <div class="ti FU"><div class="tiy">2024 &mdash; Edition 01</div><div class="tit">The Beginning</div><p class="tid">Tech Hierarchy launched the first Cyber Fest, bringing together 200+ students and professionals for a day of cybersecurity awareness, expert talks, and community building in Lahore.</p></div>
+      <div class="ti FU"><div class="tiy">2025 &mdash; Edition 02</div><div class="tit">Growing Stronger</div><p class="tid">The second edition expanded with 350+ attendees, industry-sponsored CTF challenges, and a formal speaker panel featuring top cybersecurity professionals from across Pakistan.</p></div>
+      <div class="ti FU"><div class="tiy">2026 &mdash; Edition 03</div><div class="tit">Bigger Than Ever</div><p class="tid">Cyber Fest 2026 is the largest edition yet &mdash; 500+ expected attendees, elite speakers, and a full day of high-value programming at Garrison University Lahore.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Featured Speakers</span>
+      <h2 class="STT">Meet the <span class="hl">Speakers</span></h2>
+      <div class="DV"></div>
+      <p class="SD">Learn from the brightest minds in cybersecurity, technology, and innovation.</p>
+    </div>
+    <div class="spgr STG">
+      <a href="https://www.linkedin.com/in/muhammad-khizer-javed/" target="_blank" rel="noopener" class="spc">
+        <div class="spav"><span class="spin">MK</span></div>
+        <div class="spnm">Muhammad Khizer Javed</div>
+        <div class="sprl">Cybersecurity Expert</div>
+        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
+      </a>
+      <a href="https://www.linkedin.com/in/shazeem-mir/" target="_blank" rel="noopener" class="spc">
+        <div class="spav"><span class="spin">SM</span></div>
+        <div class="spnm">Shazeem Mir</div>
+        <div class="sprl">Technology Professional</div>
+        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
+      </a>
+      <a href="https://www.linkedin.com/in/mehar-muhammad-shaban-raza-717b31270/" target="_blank" rel="noopener" class="spc">
+        <div class="spav"><span class="spin">SR</span></div>
+        <div class="spnm">Shaban Raza</div>
+        <div class="sprl">Cybersecurity Researcher</div>
+        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="sponsors" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Our Partners</span>
+      <h2 class="STT">Sponsors &amp; <span class="hl">Partners</span></h2>
+      <div class="DV"></div>
+      <p class="SD">Proudly supported by leading organizations in tech and cybersecurity.</p>
+    </div>
+    <div class="spong STG">
+      <div class="spnc"><div class="spic">&#127970;</div><div class="spnn">Platinum Sponsor</div><div class="spti">Platinum</div></div>
+      <div class="spnc"><div class="spic">&#127760;</div><div class="spnn">Gold Partner Co.</div><div class="spti">Gold</div></div>
+      <div class="spnc"><div class="spic">&#128187;</div><div class="spnn">Tech Solutions Inc.</div><div class="spti">Silver</div></div>
+      <div class="spnc"><div class="spic">&#128274;</div><div class="spnn">SecureNet PK</div><div class="spti">Silver</div></div>
+      <div class="spnc"><div class="spic">&#128225;</div><div class="spnn">Digital Media Co.</div><div class="spti">Media Partner</div></div>
+      <div class="spnc"><div class="spic">&#127891;</div><div class="spnn">Edu Partner</div><div class="spti">Academic</div></div>
+      <div class="spnc"><div class="spic">&#9729;</div><div class="spnn">Cloud Partner</div><div class="spti">Cloud</div></div>
+      <div class="spnc"><div class="spic">&#129302;</div><div class="spnn">AI Partner</div><div class="spti">Community</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="SP">
+  <div class="CON">
+    <div class="SH FU">
+      <span class="EY">Get In Touch</span>
+      <h2 class="STT">Contact <span class="hl">Us</span></h2>
+      <div class="DV"></div>
+    </div>
+    <div class="cgr">
+      <div class="cin FL">
+        <h3>Let&rsquo;s Connect</h3>
+        <div class="cit"><span class="cic">&#128231;</span><span>basimnawaz6@gmail.com</span></div>
+        <div class="cit"><span class="cic">&#128241;</span><span>+92 331 4610100</span></div>
+        <div class="cit"><span class="cic">&#128205;</span><span>Garrison University Lahore Campus, Lahore, Punjab, Pakistan</span></div>
+        <div class="cit"><span class="cic">&#127760;</span><span>www.techierarchy.com</span></div>
+        <div class="SOC">
+          <a href="https://www.linkedin.com/company/techierarchy?originalSubdomain=pk" target="_blank" rel="noopener" class="SL" title="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          <a href="https://www.instagram.com/techierarchy" target="_blank" rel="noopener" class="SL" title="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/techhierarchy" target="_blank" rel="noopener" class="SL" title="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.youtube.com/@TechHierarchy" target="_blank" rel="noopener" class="SL" title="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://linktr.ee/techierarchy" target="_blank" rel="noopener" class="SL" title="Linktree"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M13.511 5.853l3.942-3.905 2.15 2.17-4.035 3.886h5.414v3.044h-5.44l4.062 3.888-2.15 2.17-4.898-4.982-4.898 4.982-2.15-2.17 4.063-3.888H4.06V7.904h5.414L5.44 4.118l2.15-2.17 3.942 3.905V.001h2.98v5.852zm-2.98 10.524h2.98V24h-2.98v-7.623z"/></svg></a>
+        </div>
+      </div>
+      <div class="cfrm FU">
+        <h3>Send a Message</h3>
+        <div class="tbox" style="padding:0;overflow:hidden;background:transparent;border:none;min-height:500px;">
+          <iframe data-tally-src="https://tally.so/embed/mD1jZl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form" style="border-radius:12px;border:1px solid var(--br);background:var(--bc);"></iframe>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="flogo">CYBER FEST 2026</div>
+      <div class="fcop">
+        &copy; 2026 Tech Hierarchy. All rights reserved.
+        <br><span style="font-size:.75rem;color:var(--m);">Want a site like this? Get in touch with <button onclick="openModal()" class="creator-link">Hammad Akram</button></span>
+      </div>
+      <div class="fls">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#speakers">Speakers</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// CURSOR
+const C=document.getElementById('CUR'),R=document.getElementById('CURR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+'px';C.style.top=my+'px';},{passive:true});
+(function A(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;R.style.left=rx+'px';R.style.top=ry+'px';requestAnimationFrame(A);})();
+document.querySelectorAll('a,button,.spc,.spnc,.ac,.ec,.sbox').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+
+// NAV SCROLL
+const N=document.getElementById('NAV');
+window.addEventListener('scroll',()=>N.classList.toggle('sc',scrollY>50),{passive:true});
+
+// MOBILE MENU
+function TM(){document.getElementById('MNAV').classList.toggle('open');}
+function CM(){document.getElementById('MNAV').classList.remove('open');}
+
+// COUNTDOWN
+function tick(){
+  const t=new Date('2026-04-18T09:00:00+05:00'),d=Math.max(0,t-Date.now());
+  const p=n=>String(n).padStart(2,'0');
+  document.getElementById('DD').textContent=p(Math.floor(d/864e5));
+  document.getElementById('DH').textContent=p(Math.floor(d%864e5/36e5));
+  document.getElementById('DM').textContent=p(Math.floor(d%36e5/6e4));
+  document.getElementById('DS').textContent=p(Math.floor(d%6e4/1e3));
+}
+tick();setInterval(tick,1000);
+
+// PARTICLES
+const PT=document.getElementById('PTS');
+['rgba(0,245,255,.5)','rgba(123,47,190,.5)','rgba(255,0,110,.35)'].forEach(c=>{
+  for(let i=0;i<6;i++){
+    const p=document.createElement('div');p.className='pt';
+    const s=Math.random()*3.5+1;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${c};animation-duration:${Math.random()*14+9}s;animation-delay:${Math.random()*12}s;`;
+    PT.appendChild(p);
+  }
+});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('V');obs.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.FU,.FL').forEach(el=>obs.observe(el));
+document.querySelectorAll('.STG').forEach(w=>{
+  Array.from(w.children).forEach((ch,i)=>{
+    const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){setTimeout(()=>ch.classList.add('V'),i*90);o.unobserve(x.target);}});},{threshold:.08});
+    o.observe(ch);
+  });
+});
+</script>
+<!-- CREATOR MODAL -->
+<div class="modal-overlay" id="MODAL" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box" id="MODAL_BOX">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&#x2715;</button>
+<img 
+  src="hammad.jpeg" 
+  alt="A descriptive text for the image"
+  style="
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  "
+>
+    <div class="modal-name" id="modal-title">Hammad Akram</div>
+    <div class="modal-role">Web Developer &nbsp;|&nbsp; Creator of this Site</div>
+    <div class="modal-divider"></div>
+    <div class="modal-section-title">About Me</div>
+    <p class="modal-text">I am a passionate frontend developer with 2 years of experience crafting websites with HTML, CSS, and JavaScript and full stack websites. I believe in learning by doing, and I have built over 70 projects to hone my skills. This website for Tech Hierarchy is my first major public project, and I&rsquo;m proud to contribute to this community.</p>
+    <div class="modal-section-title">Get In Touch</div>
+    <div class="modal-contacts">
+      <div class="modal-contact-item"><span class="mci">&#128231;</span><a href="mailto:hamad.akram70@gmail.com">hamad.akram70@gmail.com</a></div>
+      <div class="modal-contact-item"><span class="mci">&#128241;</span><a href="tel:+923009715435">+92 300 9715435</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// MODAL
+function openModal(){
+  const o=document.getElementById('MODAL');
+  o.classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>document.getElementById('MODAL_BOX').querySelector('.modal-close').focus(),350);
+}
+function closeModal(){
+  document.getElementById('MODAL').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('MODAL').addEventListener('click',function(e){
+  if(e.target===this) closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeModal();
+});
+</script>
+</body>
+</html>
