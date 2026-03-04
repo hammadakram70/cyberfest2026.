@@ -4,99 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Fest 2026 — Powered by Tech Hierarchy</title>
-<meta name="description" content="Cyber Fest 2026 — Pakistan's Premier Cybersecurity Event at Garrison University Lahore. Powered by Tech Hierarchy.">
+<meta name="description" content="Cyber Fest 2026 — Pakistan's Premier Cybersecurity Event at Garrison University Lahore.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--p:#00F5FF;--s:#7B2FBE;--a:#FF006E;--bg:#050A14;--bc:rgba(255,255,255,0.03);--bch:rgba(0,245,255,0.06);--t:#FFF;--m:#A0AEC0;--br:rgba(0,245,255,0.15);--glow:0 0 20px rgba(0,245,255,0.4);--fd:'Orbitron',monospace;--fb:'Inter',sans-serif;--tr:all 0.3s cubic-bezier(0.4,0,0.2,1);}
+:root{
+  --p:#d899ff;--s:#5d1a7f;--a:#f0b3ff;
+  --bg:#0e0714;--bg2:#281b2f;
+  --bc:rgba(216,153,255,.04);--bch:rgba(216,153,255,.09);
+  --t:#fff;--m:#c9b8d8;--br:rgba(216,153,255,.18);
+  --glow:0 0 22px rgba(216,153,255,.45);--glow2:0 0 40px rgba(216,153,255,.2);
+  --fd:'Orbitron',monospace;--fb:'Inter',sans-serif;
+  --tr:all 0.3s cubic-bezier(.4,0,.2,1);
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--t);font-family:var(--fb);overflow-x:hidden;cursor:none;line-height:1.6;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px;}
 
-#CUR{position:fixed;width:10px;height:10px;background:var(--p);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 10px var(--p);will-change:left,top;}
-#CURR{position:fixed;width:34px;height:34px;border:1.5px solid rgba(0,245,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;will-change:left,top;}
-.ch #CUR{width:16px;height:16px;background:var(--a);box-shadow:0 0 15px var(--a);}
-.ch #CURR{width:50px;height:50px;border-color:rgba(255,0,110,0.5);}
+/* PRELOADER */
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .7s ease,visibility .7s ease;}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.pre-logo{font-family:var(--fd);font-size:clamp(1.4rem,5vw,2.2rem);font-weight:900;letter-spacing:.08em;color:var(--p);text-shadow:var(--glow);text-align:center;animation:preGlow 2s ease-in-out infinite;}
+@keyframes preGlow{0%,100%{text-shadow:0 0 18px rgba(216,153,255,.4);}50%{text-shadow:0 0 38px rgba(216,153,255,.9),0 0 70px rgba(93,26,127,.5);}}
+.pre-sub{font-family:var(--fd);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:#b070e0;text-align:center;}
+.pre-bar-wrap{width:min(320px,70vw);height:2px;background:rgba(216,153,255,.12);border-radius:2px;overflow:hidden;}
+.pre-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--s),var(--p));border-radius:2px;animation:preLoad 2.4s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes preLoad{0%{width:0%;}60%{width:72%;}85%{width:90%;}100%{width:100%;}}
+.pre-dots{display:flex;gap:.5rem;}
+.pre-dot{width:6px;height:6px;border-radius:50%;background:var(--p);opacity:.2;animation:preDot 1.4s ease-in-out infinite;}
+.pre-dot:nth-child(2){animation-delay:.2s;}.pre-dot:nth-child(3){animation-delay:.4s;}
+@keyframes preDot{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:1;transform:scale(1.4);}}
 
+/* CURSOR */
+#CUR{position:fixed;width:10px;height:10px;background:var(--p);border-radius:50%;pointer-events:none;z-index:10001;transform:translate(-50%,-50%);box-shadow:0 0 10px var(--p);will-change:left,top;}
+#CURR{position:fixed;width:34px;height:34px;border:1.5px solid rgba(216,153,255,.5);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;will-change:left,top;}
+.ch #CUR{width:16px;height:16px;background:var(--a);box-shadow:0 0 15px var(--a);}
+.ch #CURR{width:50px;height:50px;border-color:rgba(240,179,255,.5);}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s;}
-nav.sc{background:rgba(5,10,20,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--br);}
+nav.sc{background:rgba(14,7,20,.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--br);}
 .nlogo{font-family:var(--fd);font-size:1rem;font-weight:900;letter-spacing:.08em;color:var(--p);text-decoration:none;text-shadow:var(--glow);}
-.nlogo span{color:rgba(255,255,255,0.4);font-weight:400;}
+.nlogo span{color:rgba(255,255,255,.35);font-weight:400;}
 .nlinks{display:flex;align-items:center;gap:1.75rem;list-style:none;}
 .nlinks a{color:var(--m);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .25s;position:relative;}
 .nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--p);transform:scaleX(0);transition:transform .3s;}
 .nlinks a:hover{color:var(--p);}.nlinks a:hover::after{transform:scaleX(1);}
-.breg{background:linear-gradient(135deg,var(--p),var(--s))!important;color:#fff!important;padding:.45rem 1.25rem!important;border-radius:4px;font-family:var(--fd);font-size:.7rem!important;font-weight:700;letter-spacing:.1em;box-shadow:0 0 15px rgba(0,245,255,.25);transition:var(--tr);}
-.breg:hover{box-shadow:0 0 30px rgba(0,245,255,.5);transform:translateY(-1px) scale(1.03);}
+.breg{background:linear-gradient(135deg,var(--p),var(--s))!important;color:#fff!important;padding:.45rem 1.25rem!important;border-radius:4px;font-family:var(--fd);font-size:.7rem!important;font-weight:700;letter-spacing:.1em;box-shadow:0 0 15px rgba(216,153,255,.3);transition:var(--tr);}
+.breg:hover{box-shadow:0 0 30px rgba(216,153,255,.55);transform:translateY(-1px) scale(1.03);}
 .breg::after{display:none!important;}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:none;}
 .hbg span{display:block;width:24px;height:2px;background:var(--p);border-radius:2px;transition:var(--tr);}
-.mnav{position:fixed;top:68px;left:0;right:0;background:rgba(5,10,20,.98);backdrop-filter:blur(20px);padding:2rem;display:none;flex-direction:column;gap:1.5rem;z-index:999;border-bottom:1px solid var(--br);}
+.mnav{position:fixed;top:68px;left:0;right:0;background:rgba(14,7,20,.98);backdrop-filter:blur(20px);padding:2rem;display:none;flex-direction:column;gap:1.5rem;z-index:999;border-bottom:1px solid var(--br);}
 .mnav.open{display:flex;}
 .mnav a{color:var(--m);text-decoration:none;font-size:1rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;transition:color .2s;}
 .mnav a:hover{color:var(--p);}
 
+/* HERO */
 #home{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:68px 2rem 2rem;}
-.hbgg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(123,47,190,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 85% 85%,rgba(0,245,255,.12) 0%,transparent 50%),radial-gradient(ellipse 40% 30% at 15% 65%,rgba(255,0,110,.08) 0%,transparent 50%),var(--bg);}
-.gbg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,245,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
-.sc2{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,245,255,.012) 2px,rgba(0,245,255,.012) 4px);pointer-events:none;}
+.hbgg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(93,26,127,.45) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 85% 85%,rgba(216,153,255,.1) 0%,transparent 50%),radial-gradient(ellipse 40% 30% at 15% 65%,rgba(93,26,127,.18) 0%,transparent 50%),var(--bg);}
+.gbg{position:absolute;inset:0;background-image:linear-gradient(rgba(216,153,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(216,153,255,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.sc2{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(216,153,255,.01) 2px,rgba(216,153,255,.01) 4px);pointer-events:none;}
 #PTS{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
 .pt{position:absolute;border-radius:50%;animation:ptA linear infinite;}
 @keyframes ptA{from{transform:translateY(100vh);opacity:0;}10%{opacity:1;}90%{opacity:.7;}to{transform:translateY(-10vh);opacity:0;}}
 .hcon{position:relative;z-index:2;text-align:center;max-width:900px;}
-.hbdg{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid var(--br);border-radius:50px;background:rgba(0,245,255,.05);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--p);margin-bottom:1.5rem;animation:fdd .8s ease both;}
+.hbdg{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid var(--br);border-radius:50px;background:rgba(216,153,255,.06);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--p);margin-bottom:1.5rem;animation:fdd .8s ease both;}
 .bdot{width:6px;height:6px;background:var(--a);border-radius:50%;animation:pls 2s infinite;}
 @keyframes pls{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
-.htit{font-family:var(--fd);font-size:clamp(2.8rem,8vw,6rem);font-weight:900;line-height:1.0;letter-spacing:-.02em;margin-bottom:.5rem;animation:fdu .8s .2s ease both;}
-.htit .tc{color:var(--p);text-shadow:0 0 40px rgba(0,245,255,.5);}
-.hsub{font-family:var(--fd);font-size:clamp(.7rem,2vw,.95rem);letter-spacing:.25em;color:var(--s);text-transform:uppercase;margin-bottom:1.5rem;animation:fdu .8s .3s ease both;}
+.htit{font-family:var(--fd);font-size:clamp(2.8rem,8vw,6rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:.5rem;animation:fdu .8s .2s ease both;}
+.htit .tc{color:var(--p);text-shadow:0 0 40px rgba(216,153,255,.55);}
+.hsub{font-family:var(--fd);font-size:clamp(.7rem,2vw,.95rem);letter-spacing:.25em;color:#b070e0;text-transform:uppercase;margin-bottom:1.5rem;animation:fdu .8s .3s ease both;}
 .htag{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--m);max-width:580px;margin:0 auto 2.5rem;font-weight:300;animation:fdu .8s .4s ease both;}
 .htag em{color:var(--p);font-style:normal;}
 .cdw{margin-bottom:2.5rem;animation:fdu .8s .5s ease both;}
 .cdl{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--m);margin-bottom:.875rem;}
 .cd{display:flex;align-items:center;justify-content:center;gap:.4rem;flex-wrap:wrap;}
 .cdu{display:flex;flex-direction:column;align-items:center;}
-.cdn{font-family:var(--fd);font-size:clamp(2rem,6vw,4.5rem);font-weight:900;color:var(--p);text-shadow:var(--glow);background:rgba(0,245,255,.05);border:1px solid rgba(0,245,255,.2);padding:.5rem 1rem;border-radius:8px;min-width:85px;text-align:center;letter-spacing:.05em;}
+.cdn{font-family:var(--fd);font-size:clamp(2rem,6vw,4.5rem);font-weight:900;color:var(--p);text-shadow:var(--glow);background:rgba(216,153,255,.06);border:1px solid rgba(216,153,255,.22);padding:.5rem 1rem;border-radius:8px;min-width:85px;text-align:center;letter-spacing:.05em;}
 .cds{font-family:var(--fd);font-size:clamp(1.5rem,4vw,3.5rem);color:var(--p);font-weight:900;opacity:.6;padding-bottom:1.2rem;animation:blnk 1s step-end infinite;}
 @keyframes blnk{0%,100%{opacity:.6;}50%{opacity:.15;}}
 .cdll{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-top:.4rem;}
 .hcta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fdu .8s .6s ease both;}
-.bp{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:linear-gradient(135deg,var(--p),var(--s));color:#fff;text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:var(--tr);box-shadow:0 0 20px rgba(0,245,255,.3);border:none;cursor:pointer;}
-.bp:hover{box-shadow:0 0 40px rgba(0,245,255,.6),0 8px 30px rgba(0,0,0,.4);transform:translateY(-2px) scale(1.03);}
-.bo{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:transparent;color:var(--p);text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:1px solid rgba(0,245,255,.35);transition:var(--tr);cursor:pointer;}
-.bo:hover{background:rgba(0,245,255,.07);border-color:var(--p);box-shadow:var(--glow);transform:translateY(-2px);}
+.bp{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:linear-gradient(135deg,var(--p),var(--s));color:#fff;text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:var(--tr);box-shadow:0 0 20px rgba(216,153,255,.3);border:none;cursor:none;}
+.bp:hover{box-shadow:0 0 40px rgba(216,153,255,.6),0 8px 30px rgba(0,0,0,.4);transform:translateY(-2px) scale(1.03);}
+.bo{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:transparent;color:var(--p);text-decoration:none;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:1px solid rgba(216,153,255,.35);transition:var(--tr);cursor:none;}
+.bo:hover{background:rgba(216,153,255,.08);border-color:var(--p);box-shadow:var(--glow);transform:translateY(-2px);}
 .sah{position:absolute;bottom:1.75rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--m);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;z-index:2;animation:fdi 1s 1.5s ease both;}
 .sabl{width:1px;height:40px;background:linear-gradient(var(--p),transparent);animation:shrk 1.5s ease-in-out infinite;}
 @keyframes shrk{0%,100%{transform:scaleY(1);opacity:1;}50%{transform:scaleY(.4);opacity:.3;}}
 
+/* SECTION */
 section{position:relative;}
 .SP{padding:6rem 2rem;}
 .CON{max-width:1100px;margin:0 auto;}
-.SH{text-align:center;margin-bottom:4rem;}
-.EY{display:inline-block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);margin-bottom:1rem;padding:.25rem .8rem;border:1px solid rgba(0,245,255,.2);border-radius:50px;background:rgba(0,245,255,.05);}
+.SH{text-align:center;margin-bottom:3.5rem;}
+.EY{display:inline-block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);margin-bottom:1rem;padding:.25rem .8rem;border:1px solid rgba(216,153,255,.22);border-radius:50px;background:rgba(216,153,255,.06);}
 .STT{font-family:var(--fd);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.15;margin-bottom:.75rem;letter-spacing:-.02em;}
-.STT .hl{color:var(--p);text-shadow:0 0 20px rgba(0,245,255,.3);}
+.STT .hl{color:var(--p);text-shadow:0 0 20px rgba(216,153,255,.35);}
 .SD{color:var(--m);max-width:580px;margin:0 auto;font-size:.98rem;font-weight:300;}
 .DV{width:60px;height:2px;background:linear-gradient(90deg,var(--p),var(--s));margin:1.25rem auto;border-radius:2px;}
+.sub-heading{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--p);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--br);}
 
-#about{background:linear-gradient(180deg,var(--bg) 0%,rgba(123,47,190,.07) 50%,var(--bg) 100%);}
+/* ABOUT */
+#about{background:linear-gradient(180deg,var(--bg) 0%,rgba(40,27,47,.6) 50%,var(--bg) 100%);}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
 .ac{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2.5rem;position:relative;overflow:hidden;transition:var(--tr);}
 .ac::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--s));opacity:0;transition:opacity .3s;}
-.ac:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.ac:hover{border-color:rgba(216,153,255,.35);background:var(--bch);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
 .ac:hover::before{opacity:1;}
-.aci{font-size:2.5rem;margin-bottom:1.5rem;display:block;}
 .act{font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--p);margin-bottom:1rem;letter-spacing:.05em;}
 .acp{color:var(--m);font-size:.93rem;line-height:1.8;}
 .srow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem;}
 .sbox{text-align:center;padding:2rem 1rem;background:var(--bc);border:1px solid var(--br);border-radius:10px;transition:var(--tr);}
-.sbox:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-3px);}
+.sbox:hover{border-color:rgba(216,153,255,.35);background:var(--bch);transform:translateY(-3px);}
 .sbn{font-family:var(--fd);font-size:2.5rem;font-weight:900;color:var(--p);text-shadow:var(--glow);display:block;}
 .sbl{font-size:.72rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;}
 
-#venue{background:rgba(5,10,20,.96);}
-.vc{background:var(--bc);border:1px solid var(--br);border-radius:14px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+/* VENUE */
+#venue{background:var(--bg2);}
+.vc{background:rgba(216,153,255,.03);border:1px solid var(--br);border-radius:14px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
 .vlb{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--p);margin-bottom:.4rem;}
 .vnm{font-family:var(--fd);font-size:1.75rem;font-weight:700;margin-bottom:1.5rem;line-height:1.3;}
 .vls{display:flex;flex-direction:column;gap:1rem;}
@@ -104,68 +132,108 @@ section{position:relative;}
 .vii{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
 .vit{color:var(--m);font-size:.93rem;}
 .vit strong{color:var(--t);display:block;margin-bottom:.15rem;}
-.vmap{background:rgba(0,245,255,.03);border:1px solid var(--br);border-radius:12px;height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--m);font-size:.9rem;}
+.vmap{background:rgba(216,153,255,.03);border:1px solid var(--br);border-radius:12px;height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--m);font-size:.9rem;}
 .vpu{width:60px;height:60px;border-radius:50%;border:2px solid var(--p);display:flex;align-items:center;justify-content:center;font-size:1.5rem;animation:mpu 2s infinite;}
-@keyframes mpu{0%,100%{box-shadow:0 0 0 0 rgba(0,245,255,.4);}50%{box-shadow:0 0 0 18px rgba(0,245,255,0);}}
+@keyframes mpu{0%,100%{box-shadow:0 0 0 0 rgba(216,153,255,.4);}50%{box-shadow:0 0 0 18px rgba(216,153,255,0);}}
 
-#expect{background:linear-gradient(180deg,var(--bg) 0%,rgba(255,0,110,.04) 50%,var(--bg) 100%);}
+/* EXPECT */
+#expect{background:linear-gradient(180deg,var(--bg) 0%,rgba(40,27,47,.4) 50%,var(--bg) 100%);}
 .egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .ec{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2rem;text-align:center;transition:var(--tr);position:relative;overflow:hidden;}
-.ec::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,245,255,.06) 0%,transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none;}
-.ec:hover{border-color:rgba(0,245,255,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.ec::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(216,153,255,.07) 0%,transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none;}
+.ec:hover{border-color:rgba(216,153,255,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
 .ec:hover::after{opacity:1;}
-.eci{font-size:2.5rem;margin-bottom:1rem;display:block;}
 .ect{font-family:var(--fd);font-size:.9rem;font-weight:700;color:var(--p);margin-bottom:.75rem;letter-spacing:.05em;}
 .ecp{color:var(--m);font-size:.875rem;line-height:1.7;}
 
-#history{background:var(--bg);}
+/* HISTORY */
+#history{background:var(--bg2);}
 .tl{position:relative;max-width:680px;margin:0 auto;padding-left:2rem;}
 .tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--p) 20%,var(--s) 80%,transparent);}
 .ti{position:relative;padding:0 0 3rem 2rem;}
 .ti::before{content:'';position:absolute;left:-4px;top:6px;width:9px;height:9px;background:var(--p);border-radius:50%;box-shadow:0 0 10px var(--p);}
 .tiy{font-family:var(--fd);font-size:.72rem;color:var(--p);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.4rem;}
-.tit{font-size:1.1rem;font-weight:600;margin-bottom:.5rem;}
+.tit2{font-size:1.1rem;font-weight:600;margin-bottom:.5rem;}
 .tid{color:var(--m);font-size:.9rem;line-height:1.75;}
 
-#speakers{background:linear-gradient(180deg,var(--bg) 0%,rgba(123,47,190,.1) 50%,var(--bg) 100%);}
-.spgr{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;justify-items:center;}
-.spc{background:var(--bc);border:1px solid var(--br);border-radius:16px;padding:2.5rem 2rem;text-align:center;width:100%;max-width:310px;transition:var(--tr);text-decoration:none;display:block;position:relative;overflow:hidden;}
+/* GALLERY */
+#gallery{background:var(--bg);}
+.gallery-track{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.gal-item{aspect-ratio:4/3;border-radius:8px;background:linear-gradient(135deg,rgba(93,26,127,.4),rgba(216,153,255,.08));border:1px solid var(--br);overflow:hidden;position:relative;transition:transform .3s ease,box-shadow .3s ease;cursor:none;}
+.gal-item:hover{transform:scale(1.03);box-shadow:0 12px 30px rgba(0,0,0,.5),var(--glow2);}
+.gal-item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(93,26,127,.45) 0%,rgba(40,27,47,.25) 100%);}
+.gal-item svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38%;height:38%;opacity:.22;}
+.gal-ph-label{position:absolute;bottom:.6rem;left:.75rem;font-size:.6rem;color:rgba(216,153,255,.5);font-family:var(--fd);letter-spacing:.1em;text-transform:uppercase;}
+.gallery-footer{display:flex;justify-content:center;margin-top:1.75rem;}
+
+/* SPEAKERS CAROUSEL */
+#speakers{background:linear-gradient(180deg,var(--bg) 0%,rgba(40,27,47,.5) 50%,var(--bg) 100%);}
+.carousel-wrap{position:relative;}
+.carousel-viewport{overflow:hidden;}
+.carousel-track{display:flex;gap:1rem;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.spc{flex:0 0 calc(25% - .75rem);background:var(--bc);border:1px solid var(--br);border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:border-color .3s,box-shadow .3s,transform .3s;text-decoration:none;display:block;position:relative;overflow:hidden;color:inherit;}
 .spc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--s));transform:scaleX(0);transition:transform .35s;}
-.spc:hover{border-color:rgba(0,245,255,.4);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 30px rgba(0,245,255,.08);background:var(--bch);}
+.spc:hover{border-color:rgba(216,153,255,.45);transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.5),var(--glow2);background:var(--bch);}
 .spc:hover::before{transform:scaleX(1);}
-.spav{width:110px;height:110px;border-radius:50%;border:2px solid var(--br);margin:0 auto 1.5rem;background:linear-gradient(135deg,rgba(0,245,255,.1),rgba(123,47,190,.25));display:flex;align-items:center;justify-content:center;transition:var(--tr);}
-.spc:hover .spav{border-color:var(--p);box-shadow:0 0 20px rgba(0,245,255,.3);}
-.spin{font-family:var(--fd);font-size:1.6rem;font-weight:700;color:var(--p);}
-.spnm{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.4rem;letter-spacing:.03em;}
-.sprl{font-size:.8rem;color:var(--m);letter-spacing:.05em;margin-bottom:1.25rem;}
-.spli{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--p);letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;}
+.spav{width:90px;height:90px;border-radius:50%;border:2px solid var(--br);margin:0 auto 1.25rem;background:linear-gradient(135deg,rgba(93,26,127,.4),rgba(216,153,255,.15));display:flex;align-items:center;justify-content:center;transition:border-color .3s,box-shadow .3s,transform .3s;}
+.spc:hover .spav{border-color:var(--p);box-shadow:0 0 22px rgba(216,153,255,.35);transform:scale(1.06);}
+.spav svg{width:48px;height:48px;opacity:.45;}
+.spav svg circle,.spav svg path{fill:var(--p);}
+.spnm{font-family:var(--fd);font-size:.82rem;font-weight:700;margin-bottom:.3rem;letter-spacing:.03em;color:var(--t);}
+.sprl{font-size:.74rem;color:var(--m);margin-bottom:1rem;}
+.spli{display:inline-flex;align-items:center;gap:.35rem;font-size:.67rem;color:var(--p);letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s;}
 .spc:hover .spli{opacity:1;transform:translateY(0);}
+.car-controls{display:flex;align-items:center;justify-content:space-between;margin-top:1.75rem;}
+.car-arrows{display:flex;gap:.75rem;}
+.car-btn{width:42px;height:42px;border-radius:50%;background:rgba(216,153,255,.06);border:1px solid var(--br);color:var(--p);display:flex;align-items:center;justify-content:center;cursor:none;transition:var(--tr);}
+.car-btn:hover:not(:disabled){background:rgba(216,153,255,.14);border-color:var(--p);box-shadow:var(--glow);}
+.car-btn:disabled{opacity:.3;}
+.car-btn svg{width:18px;height:18px;}
+.car-dots{display:flex;gap:.5rem;align-items:center;}
+.car-dot{width:6px;height:6px;border-radius:50%;background:rgba(216,153,255,.25);transition:background .3s,transform .3s;cursor:none;}
+.car-dot.active{background:var(--p);transform:scale(1.4);}
+.car-view-all{font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p);background:none;border:1px solid rgba(216,153,255,.3);border-radius:4px;padding:.45rem 1.1rem;cursor:none;transition:var(--tr);}
+.car-view-all:hover{background:rgba(216,153,255,.08);border-color:var(--p);box-shadow:var(--glow);}
 
-#sponsors{background:var(--bg);}
-.spong{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.spnc{background:var(--bc);border:1px solid var(--br);border-radius:10px;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;transition:var(--tr);}
-.spnc:hover{border-color:rgba(0,245,255,.3);background:var(--bch);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.3);}
-.spic{width:70px;height:70px;background:linear-gradient(135deg,rgba(0,245,255,.1),rgba(123,47,190,.2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:1px solid var(--br);}
-.spnn{font-size:.85rem;color:var(--m);font-weight:500;text-align:center;}
-.spti{font-size:.62rem;color:var(--p);letter-spacing:.18em;text-transform:uppercase;}
+/* SPONSORS */
+#sponsors{background:var(--bg2);}
+.org-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.org-card{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;transition:var(--tr);}
+.org-card:hover{border-color:rgba(216,153,255,.35);background:var(--bch);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.3),var(--glow2);}
+.org-av{width:80px;height:80px;border-radius:50%;border:2px solid var(--br);background:linear-gradient(135deg,rgba(93,26,127,.4),rgba(216,153,255,.15));display:flex;align-items:center;justify-content:center;transition:border-color .3s,box-shadow .3s;}
+.org-card:hover .org-av{border-color:var(--p);box-shadow:0 0 18px rgba(216,153,255,.3);}
+.org-av svg{width:42px;height:42px;opacity:.45;}
+.org-av svg circle,.org-av svg path{fill:var(--p);}
+.org-nm{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--t);letter-spacing:.04em;text-align:center;}
+.org-rl{font-size:.73rem;color:var(--m);text-align:center;}
+.logo-car-wrap{position:relative;}
+.logo-car-viewport{overflow:hidden;}
+.logo-car-track{display:flex;gap:1rem;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.logo-card{flex:0 0 calc(25% - .75rem);background:var(--bc);border:1px solid var(--br);border-radius:10px;padding:1.75rem 1.25rem;display:flex;flex-direction:column;align-items:center;gap:.65rem;transition:border-color .3s,box-shadow .3s,transform .3s;}
+.logo-card:hover{border-color:rgba(216,153,255,.35);background:var(--bch);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.3),var(--glow2);}
+.logo-ic{width:64px;height:64px;border-radius:8px;border:1px solid var(--br);background:linear-gradient(135deg,rgba(93,26,127,.3),rgba(216,153,255,.1));display:flex;align-items:center;justify-content:center;transition:border-color .3s;}
+.logo-card:hover .logo-ic{border-color:var(--p);}
+.logo-ic svg{width:34px;height:34px;opacity:.45;}
+.logo-ic svg path,.logo-ic svg rect,.logo-ic svg circle,.logo-ic svg line,.logo-ic svg ellipse,.logo-ic svg polygon{fill:var(--p);stroke:none;}
+.logo-nm{font-size:.8rem;color:var(--m);font-weight:500;text-align:center;}
 
-#contact{background:linear-gradient(180deg,var(--bg) 0%,rgba(3,4,10,1) 100%);border-top:1px solid var(--br);}
+/* CONTACT */
+#contact{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);border-top:1px solid var(--br);}
 .cgr{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;}
 .cin h3{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;color:var(--p);}
 .cit{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem;color:var(--m);font-size:.93rem;}
 .cic{font-size:1.1rem;flex-shrink:0;}
 .SOC{display:flex;gap:.875rem;margin-top:2rem;flex-wrap:wrap;}
 .SL{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--bc);border:1px solid var(--br);border-radius:8px;color:var(--m);text-decoration:none;transition:var(--tr);}
-.SL:hover{border-color:var(--p);color:var(--p);background:rgba(0,245,255,.05);box-shadow:var(--glow);transform:translateY(-2px);}
+.SL:hover{border-color:var(--p);color:var(--p);background:rgba(216,153,255,.07);box-shadow:var(--glow);transform:translateY(-2px);}
 .cfrm h3{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;color:var(--p);}
-.tbox{background:var(--bc);border:1px solid var(--br);border-radius:12px;padding:2rem;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;color:var(--m);font-size:.88rem;}
 .fbot{border-top:1px solid var(--br);padding-top:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .flogo{font-family:var(--fd);font-size:1rem;font-weight:900;color:var(--p);text-shadow:var(--glow);}
-.fcop{color:var(--m);font-size:.82rem; text-align: center;}
-.fls{display:flex;gap:2rem;}
-.fls a{color:var(--m);text-decoration:none;font-size:.82rem;transition:color .2s;text-align: center;}
-.fls a:hover{color:var(--p);}
+.fcop{color:var(--m);font-size:.78rem;text-align:center;line-height:1.8;}
+.creator-link{background:none;border:none;color:var(--p);cursor:none;font-family:var(--fb);font-size:.75rem;font-weight:600;padding:0;text-decoration:underline;text-decoration-color:rgba(216,153,255,.4);text-underline-offset:2px;transition:color .2s;}
+.creator-link:hover{color:#fff;text-shadow:var(--glow);}
 
+/* SCROLL REVEAL */
 .FU{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
 .FU.V{opacity:1;transform:translateY(0);}
 .FL{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease;}
@@ -176,39 +244,79 @@ section{position:relative;}
 @keyframes fdu{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fdi{from{opacity:0;}to{opacity:1;}}
 
-/* CREATOR LINK */
-.creator-link{background:none;border:none;color:var(--p);cursor:pointer;font-family:var(--fb);font-size:.75rem;font-weight:600;padding:0;text-decoration:underline;text-decoration-color:rgba(0,245,255,.4);text-underline-offset:2px;transition:color .2s,text-shadow .2s;}
-.creator-link:hover{color:#fff;text-shadow:var(--glow);}
-
-/* MODAL OVERLAY */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:10002;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s ease;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
-.modal-box{background:linear-gradient(135deg,rgba(5,10,20,.98),rgba(20,10,40,.98));border:1px solid rgba(0,245,255,.25);border-radius:16px;padding:2.5rem;max-width:520px;width:100%;position:relative;transform:scale(.88) translateY(20px);transition:transform .35s cubic-bezier(0.34,1.56,0.64,1),opacity .3s ease;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(0,245,255,.08);}
+.modal-box{background:linear-gradient(145deg,rgba(20,10,32,.98),rgba(40,27,47,.98));border:1px solid rgba(216,153,255,.3);border-radius:16px;padding:2.5rem;width:100%;position:relative;transform:scale(.9) translateY(16px);opacity:0;transition:transform .35s cubic-bezier(.34,1.2,.64,1),opacity .3s ease;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(93,26,127,.3);max-height:90vh;overflow-y:auto;}
 .modal-overlay.open .modal-box{transform:scale(1) translateY(0);opacity:1;}
-.modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(0,245,255,.2);border-radius:50%;color:var(--m);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr);line-height:1;}
-.modal-close:hover{background:rgba(255,0,110,.15);border-color:var(--a);color:var(--a);}
-.modal-avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--p);background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(123,47,190,.3));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.4rem;font-weight:900;color:var(--p);margin:0 auto 1.25rem;box-shadow:0 0 20px rgba(0,245,255,.2);}
-.modal-name{font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--p);text-align:center;margin-bottom:.25rem;text-shadow:var(--glow);}
+.modal-box.sm{max-width:500px;}
+.modal-box.lg{max-width:900px;}
+.modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(216,153,255,.2);border-radius:50%;color:var(--m);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:var(--tr);z-index:1;}
+.modal-close:hover{background:rgba(216,153,255,.15);border-color:var(--p);color:var(--p);}
+.modal-ttl{font-family:var(--fd);font-size:1.1rem;font-weight:900;color:var(--p);margin-bottom:1.75rem;letter-spacing:.06em;padding-right:2rem;}
+/* Creator modal */
+.modal-avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--p);background:linear-gradient(135deg,rgba(93,26,127,.5),rgba(216,153,255,.2));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.4rem;font-weight:900;color:var(--p);margin:0 auto 1.25rem;box-shadow:0 0 24px rgba(216,153,255,.25);}
+.modal-name{font-family:var(--fd);font-size:1.25rem;font-weight:900;color:var(--p);text-align:center;margin-bottom:.25rem;text-shadow:var(--glow);}
 .modal-role{font-size:.8rem;color:var(--m);text-align:center;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem;}
 .modal-divider{width:40px;height:1px;background:linear-gradient(90deg,var(--p),var(--s));margin:.75rem auto 1.25rem;}
-.modal-section-title{font-family:var(--fd);font-size:.7rem;color:var(--p);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.6rem;}
+.modal-stitle{font-family:var(--fd);font-size:.68rem;color:var(--p);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.6rem;}
 .modal-text{color:var(--m);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem;}
 .modal-contacts{display:flex;flex-direction:column;gap:.6rem;}
 .modal-contact-item{display:flex;align-items:center;gap:.75rem;color:var(--m);font-size:.9rem;}
 .modal-contact-item a{color:var(--p);text-decoration:none;transition:color .2s;}
 .modal-contact-item a:hover{color:#fff;}
 .mci{font-size:1rem;flex-shrink:0;}
-@media(max-width:480px){.modal-box{padding:2rem 1.5rem;}}
+/* Grid modal layout */
+.modal-sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.modal-gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.875rem;}
+.modal-gal-item{aspect-ratio:4/3;border-radius:8px;background:linear-gradient(135deg,rgba(93,26,127,.4),rgba(216,153,255,.08));border:1px solid var(--br);position:relative;overflow:hidden;}
+.modal-gal-item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(93,26,127,.45),rgba(40,27,47,.25));}
+.modal-gal-item svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:35%;height:35%;opacity:.2;}
 
-@media(max-width:768px){.nlinks{display:none;}.hbg{display:flex;}.vc{grid-template-columns:1fr;}.egrid{grid-template-columns:1fr;}.spgr{grid-template-columns:1fr;justify-items:center;}.spong{grid-template-columns:repeat(2,1fr);}.cgr{grid-template-columns:1fr;gap:2rem;}.fbot{flex-direction:column;text-align:center;}.fls{justify-content:center;}}
-@media(max-width:480px){.SP{padding:4rem 1.25rem;}.srow{grid-template-columns:1fr 1fr;}}
+/* RESPONSIVE */
+@media(max-width:1100px){.modal-sp-grid{grid-template-columns:repeat(3,1fr);}.modal-gal-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){
+  .spc{flex:0 0 calc(50% - .5rem);}
+  .logo-card{flex:0 0 calc(50% - .5rem);}
+  .gallery-track{grid-template-columns:repeat(2,1fr);}
+  .modal-sp-grid{grid-template-columns:repeat(2,1fr);}
+  .modal-gal-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .nlinks{display:none;}.hbg{display:flex;}
+  .agrid{grid-template-columns:1fr;gap:1.25rem;}
+  .vc{grid-template-columns:1fr;}
+  .egrid{grid-template-columns:1fr;}
+  .cgr{grid-template-columns:1fr;gap:2rem;}
+  .fbot{flex-direction:column;text-align:center;}
+  .org-grid{grid-template-columns:1fr;}
+  .modal-box{padding:1.75rem 1.25rem;}
+  .srow{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .SP{padding:4rem 1.25rem;}
+  .gallery-track{grid-template-columns:1fr 1fr;}
+  .modal-gal-grid{grid-template-columns:1fr 1fr;}
+  .spc{flex:0 0 calc(100%);}
+  .logo-card{flex:0 0 calc(100%);}
+}
 </style>
 </head>
 <body>
 
-<div id="CUR"></div>
-<div id="CURR"></div>
+<!-- PRELOADER -->
+<div id="preloader">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:.75rem;">
+    <div class="pre-logo">CYBER<span style="color:rgba(255,255,255,.35);font-weight:400;">FEST</span> 2026</div>
+    <div class="pre-sub">Powered by Tech Hierarchy</div>
+  </div>
+  <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+  <div class="pre-dots"><div class="pre-dot"></div><div class="pre-dot"></div><div class="pre-dot"></div></div>
+</div>
 
+<div id="CUR"></div><div id="CURR"></div>
+
+<!-- Mobile Nav -->
 <div class="mnav" id="MNAV">
   <a href="#home" onclick="CM()">Home</a>
   <a href="#about" onclick="CM()">About</a>
@@ -218,24 +326,23 @@ section{position:relative;}
   <a href="https://luma.com/73w5wnmw" target="_blank" class="breg" style="text-align:center;text-decoration:none;padding:.6rem 1.25rem;">Register Now</a>
 </div>
 
+<!-- Navbar -->
 <nav id="NAV">
   <a href="#home" class="nlogo">CYBER<span>FEST</span> 2026</a>
   <ul class="nlinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#speakers">Speakers</a></li>
-    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+    <li><a href="#speakers">Speakers</a></li><li><a href="#sponsors">Sponsors</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://luma.com/73w5wnmw" target="_blank" class="breg">Register Now</a></li>
   </ul>
   <div class="hbg" onclick="TM()"><span></span><span></span><span></span></div>
 </nav>
 
+<!-- HERO -->
 <section id="home">
-  <div class="hbgg"></div><div class="gbg"></div><div class="sc2"></div>
-  <div id="PTS"></div>
+  <div class="hbgg"></div><div class="gbg"></div><div class="sc2"></div><div id="PTS"></div>
   <div class="hcon">
-    <div class="hbdg"><span class="bdot"></span>April 18, 2026 &bull; Garrison University, Lahore</div>
+    <div class="hbdg"><span class="bdot"></span>April 18 &amp; 19, 2026 &bull; Garrison University, Lahore</div>
     <h1 class="htit"><span class="tc">CYBER</span> FEST</h1>
     <p class="hsub">Powered by Tech Hierarchy</p>
     <p class="htag">Where <em>cybersecurity meets innovation</em> &mdash; shaping Pakistan&rsquo;s next generation of digital defenders, thinkers, and leaders.</p>
@@ -259,6 +366,7 @@ section{position:relative;}
   <div class="sah"><span>Scroll</span><div class="sabl"></div></div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="SP">
   <div class="CON">
     <div class="SH FU">
@@ -268,32 +376,35 @@ section{position:relative;}
       <p class="SD">Pakistan&rsquo;s premier cybersecurity event &mdash; connecting students, professionals, and innovators to build a safer digital future.</p>
     </div>
     <div class="agrid STG">
-      <div class="ac"><span class="aci">&#128737;</span><div class="act">About Cyber Fest</div><p class="acp">Cyber Fest is an annual cybersecurity event dedicated to empowering students and professionals with cutting-edge knowledge, hands-on experiences, and real-world insights. From capture-the-flag challenges to expert-led panels, Cyber Fest is where Pakistan&rsquo;s digital defenders come together to learn, compete, and grow.</p></div>
-      <div class="ac"><span class="aci">&#128640;</span><div class="act">About Tech Hierarchy</div><p class="acp">Tech Hierarchy is a student-led technology community committed to advancing digital literacy, cybersecurity awareness, and innovation across Pakistan. With a mission to bridge the gap between academia and industry, Tech Hierarchy hosts world-class events, workshops, and networking opportunities that shape tomorrow&rsquo;s tech leaders.</p></div>
+      <div class="ac">
+        <div class="act">About Cyber Fest</div>
+        <p class="acp">Cyber Fest is an annual cybersecurity event launched in 2025 by Tech Hierarchy. Now in its second edition in 2026, Cyber Fest continues to empower students and professionals with cutting-edge knowledge, hands-on challenges, and real-world industry insights. From Capture the Flag competitions to expert-led panels, this is where Pakistan&rsquo;s digital defenders come together to learn, compete, and grow.</p>
+      </div>
+      <div class="ac">
+        <div class="act">About Tech Hierarchy</div>
+        <p class="acp">Tech Hierarchy is a student-led technology community committed to advancing digital literacy, cybersecurity awareness, and innovation across Pakistan. With a mission to bridge the gap between academia and industry, Tech Hierarchy hosts world-class events, workshops, and networking opportunities that shape tomorrow&rsquo;s tech leaders.</p>
+      </div>
     </div>
     <div class="srow STG">
       <div class="sbox"><span class="sbn">500+</span><span class="sbl">Attendees</span></div>
       <div class="sbox"><span class="sbn">10+</span><span class="sbl">Speakers</span></div>
-      <div class="sbox"><span class="sbn">3+</span><span class="sbl">Years Running</span></div>
+      <div class="sbox"><span class="sbn">2nd</span><span class="sbl">Edition</span></div>
       <div class="sbox"><span class="sbn">20+</span><span class="sbl">Partners</span></div>
     </div>
   </div>
 </section>
 
+<!-- VENUE -->
 <section id="venue" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Location</span>
-      <h2 class="STT">Event <span class="hl">Venue</span></h2>
-      <div class="DV"></div>
-    </div>
+    <div class="SH FU"><span class="EY">Location</span><h2 class="STT">Event <span class="hl">Venue</span></h2><div class="DV"></div></div>
     <div class="vc FU">
       <div>
         <p class="vlb">Hosting Venue</p>
         <h3 class="vnm">Garrison University<br>Lahore Campus</h3>
         <div class="vls">
-          <div class="vi"><span class="vii">&#128197;</span><div class="vit"><strong>Date</strong>April 18, 2026</div></div>
-          <div class="vi"><span class="vii">&#128336;</span><div class="vit"><strong>Time</strong>9:00 AM &mdash; 5:00 PM PKT</div></div>
+          <div class="vi"><span class="vii">&#128197;</span><div class="vit"><strong>Dates</strong>April 18 &amp; 19, 2026</div></div>
+          <div class="vi"><span class="vii">&#128336;</span><div class="vit"><strong>Time</strong>9:00 AM &mdash; 5:00 PM PKT (Both Days)</div></div>
           <div class="vi"><span class="vii">&#128205;</span><div class="vit"><strong>Address</strong>Garrison University Lahore Campus, Lahore, Punjab, Pakistan</div></div>
           <div class="vi"><span class="vii">&#127915;</span><div class="vit"><strong>Entry</strong>Open to All &mdash; Registration Required</div></div>
         </div>
@@ -307,105 +418,174 @@ section{position:relative;}
   </div>
 </section>
 
+<!-- EXPECT -->
 <section id="expect" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Experience</span>
-      <h2 class="STT">What to <span class="hl">Expect</span></h2>
-      <div class="DV"></div>
-      <p class="SD">A full-day immersive experience packed with knowledge, challenges, and connections.</p>
-    </div>
+    <div class="SH FU"><span class="EY">Experience</span><h2 class="STT">What to <span class="hl">Expect</span></h2><div class="DV"></div><p class="SD">A two-day immersive experience packed with knowledge, challenges, and connections.</p></div>
     <div class="egrid STG">
-      <div class="ec"><span class="eci">&#127908;</span><div class="ect">Expert Keynotes</div><p class="ecp">Industry leaders share frontline insights, emerging threats, and the future of digital security across Pakistan and beyond.</p></div>
-      <div class="ec"><span class="eci">&#127937;</span><div class="ect">CTF Challenges</div><p class="ecp">Capture-the-Flag competitions testing your hacking skills, problem-solving, and cybersecurity knowledge in real-time.</p></div>
-      <div class="ec"><span class="eci">&#129309;</span><div class="ect">Networking</div><p class="ecp">Connect with students, professionals, mentors, and recruiters shaping Pakistan&rsquo;s digital future.</p></div>
-      <div class="ec"><span class="eci">&#128295;</span><div class="ect">Workshops</div><p class="ecp">Hands-on technical sessions covering penetration testing, ethical hacking, digital forensics, and more.</p></div>
-      <div class="ec"><span class="eci">&#127942;</span><div class="ect">Awards &amp; Recognition</div><p class="ecp">Top performers recognized with certificates, prizes, and opportunities for career advancement in cybersecurity.</p></div>
-      <div class="ec"><span class="eci">&#128161;</span><div class="ect">Panel Discussions</div><p class="ecp">Thought-provoking panels on AI-driven threats, cybersecurity policy, privacy, and secure digital infrastructure.</p></div>
+      <div class="ec"><div class="ect">Expert Keynotes</div><p class="ecp">Industry leaders share frontline insights, emerging threats, and the future of digital security across Pakistan and beyond.</p></div>
+      <div class="ec"><div class="ect">CTF Challenges</div><p class="ecp">Capture-the-Flag competitions testing your hacking skills, problem-solving, and cybersecurity knowledge in real-time.</p></div>
+      <div class="ec"><div class="ect">Networking</div><p class="ecp">Connect with students, professionals, mentors, and recruiters shaping Pakistan&rsquo;s digital future.</p></div>
+      <div class="ec"><div class="ect">Workshops</div><p class="ecp">Hands-on technical sessions covering penetration testing, ethical hacking, digital forensics, and more.</p></div>
+      <div class="ec"><div class="ect">Awards &amp; Recognition</div><p class="ecp">Top performers recognized with certificates, prizes, and opportunities for career advancement in cybersecurity.</p></div>
+      <div class="ec"><div class="ect">Panel Discussions</div><p class="ecp">Thought-provoking panels on AI-driven threats, cybersecurity policy, privacy, and secure digital infrastructure.</p></div>
     </div>
   </div>
 </section>
 
+<!-- HISTORY -->
 <section id="history" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Our Journey</span>
-      <h2 class="STT">Event <span class="hl">History</span></h2>
-      <div class="DV"></div>
-      <p class="SD">From a small gathering to Pakistan&rsquo;s most anticipated cybersecurity event.</p>
-    </div>
+    <div class="SH FU"><span class="EY">Our Journey</span><h2 class="STT">Event <span class="hl">History</span></h2><div class="DV"></div><p class="SD">From a bold first step in 2025 to Pakistan&rsquo;s most anticipated cybersecurity event in 2026.</p></div>
     <div class="tl">
-      <div class="ti FU"><div class="tiy">2024 &mdash; Edition 01</div><div class="tit">The Beginning</div><p class="tid">Tech Hierarchy launched the first Cyber Fest, bringing together 200+ students and professionals for a day of cybersecurity awareness, expert talks, and community building in Lahore.</p></div>
-      <div class="ti FU"><div class="tiy">2025 &mdash; Edition 02</div><div class="tit">Growing Stronger</div><p class="tid">The second edition expanded with 350+ attendees, industry-sponsored CTF challenges, and a formal speaker panel featuring top cybersecurity professionals from across Pakistan.</p></div>
-      <div class="ti FU"><div class="tiy">2026 &mdash; Edition 03</div><div class="tit">Bigger Than Ever</div><p class="tid">Cyber Fest 2026 is the largest edition yet &mdash; 500+ expected attendees, elite speakers, and a full day of high-value programming at Garrison University Lahore.</p></div>
+      <div class="ti FU">
+        <div class="tiy">2025 &mdash; Edition 01</div><div class="tit2">The Beginning</div>
+        <p class="tid">Tech Hierarchy launched the inaugural Cyber Fest in 2025, bringing together students and professionals for a day of cybersecurity awareness, expert talks, and community building at Garrison University Lahore.</p>
+      </div>
+      <div class="ti FU">
+        <div class="tiy">2026 &mdash; Edition 02</div><div class="tit2">Bigger &amp; Bolder</div>
+        <p class="tid">The second edition of Cyber Fest arrives in 2026 &mdash; spanning two full days and featuring 500+ expected attendees, elite speakers, industry-sponsored CTF challenges, workshops, and a newly expanded programming lineup.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery" class="SP">
+  <div class="CON">
+    <div class="SH FU"><span class="EY">Past Event Highlights</span><h2 class="STT">Cyber Fest <span class="hl">2025 Gallery</span></h2><div class="DV"></div><p class="SD">A glimpse into the energy, learning, and community that defined our inaugural edition.</p></div>
+    <div class="gallery-track FU">
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="32" rx="3" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M4 18h40M14 8v10" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/><circle cx="24" cy="30" r="6" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">Session</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="18" r="9" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">Keynote</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M16 24h16M16 30h10M10 18h28" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">CTF</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 18h12z" stroke="rgba(216,153,255,.6)" stroke-width="2"/></svg><div class="gal-ph-label">Awards</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="36" height="26" rx="3" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M16 8h16v8H16zM24 14v6" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">Networking</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 36V20l12-12 12 12v16H28V28h-8v8H12z" stroke="rgba(216,153,255,.6)" stroke-width="2"/></svg><div class="gal-ph-label">Venue</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="20" r="7" stroke="rgba(216,153,255,.6)" stroke-width="2"/><circle cx="32" cy="20" r="7" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M4 40c0-6.6 5.4-12 12-12h16c6.6 0 12 5.4 12 12" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">Community</div></div>
+      <div class="gal-item"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="32" height="32" rx="4" stroke="rgba(216,153,255,.6)" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg><div class="gal-ph-label">Workshop</div></div>
+    </div>
+    <div class="gallery-footer"><button class="bo" onclick="openModal('GAL_MODAL')">View All Photos</button></div>
+  </div>
+</section>
+
+<!-- SPEAKERS CAROUSEL -->
 <section id="speakers" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Featured Speakers</span>
-      <h2 class="STT">Meet the <span class="hl">Speakers</span></h2>
-      <div class="DV"></div>
-      <p class="SD">Learn from the brightest minds in cybersecurity, technology, and innovation.</p>
-    </div>
-    <div class="spgr STG">
-      <a href="https://www.linkedin.com/in/muhammad-khizer-javed/" target="_blank" rel="noopener" class="spc">
-        <div class="spav"><span class="spin">MK</span></div>
-        <div class="spnm">Muhammad Khizer Javed</div>
-        <div class="sprl">Cybersecurity Expert</div>
-        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
-      </a>
-      <a href="https://www.linkedin.com/in/shazeem-mir/" target="_blank" rel="noopener" class="spc">
-        <div class="spav"><span class="spin">SM</span></div>
-        <div class="spnm">Shazeem Mir</div>
-        <div class="sprl">Technology Professional</div>
-        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
-      </a>
-      <a href="https://www.linkedin.com/in/mehar-muhammad-shaban-raza-717b31270/" target="_blank" rel="noopener" class="spc">
-        <div class="spav"><span class="spin">SR</span></div>
-        <div class="spnm">Shaban Raza</div>
-        <div class="sprl">Cybersecurity Researcher</div>
-        <div class="spli"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> View on LinkedIn</div>
-      </a>
+    <div class="SH FU"><span class="EY">Featured Speakers</span><h2 class="STT">Meet the <span class="hl">Speakers</span></h2><div class="DV"></div><p class="SD">Learn from the brightest minds in cybersecurity, technology, and innovation.</p></div>
+    <div class="carousel-wrap FU">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="SP_TRACK">
+          <a href="https://www.linkedin.com/in/muhammad-khizer-javed/" target="_blank" rel="noopener" class="spc">
+            <div class="spav"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div>
+            <div class="spnm">Muhammad Khizer Javed</div><div class="sprl">Cybersecurity Expert</div>
+            <div class="spli"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> LinkedIn</div>
+          </a>
+          <a href="https://www.linkedin.com/in/shazeem-mir/" target="_blank" rel="noopener" class="spc">
+            <div class="spav"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div>
+            <div class="spnm">Shazeem Mir</div><div class="sprl">Technology Professional</div>
+            <div class="spli"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> LinkedIn</div>
+          </a>
+          <a href="https://www.linkedin.com/in/mehar-muhammad-shaban-raza-717b31270/" target="_blank" rel="noopener" class="spc">
+            <div class="spav"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div>
+            <div class="spnm">Shaban Raza</div><div class="sprl">Cybersecurity Researcher</div>
+            <div class="spli"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> LinkedIn</div>
+          </a>
+          <div class="spc" style="opacity:.7;"><div class="spav" style="border-style:dashed;"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="spnm" style="color:var(--m);">Speaker Name</div><div class="sprl">Title / Role — TBA</div><div class="spli" style="opacity:.4;transform:none;">LinkedIn</div></div>
+          <div class="spc" style="opacity:.7;"><div class="spav" style="border-style:dashed;"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="spnm" style="color:var(--m);">Speaker Name</div><div class="sprl">Title / Role — TBA</div><div class="spli" style="opacity:.4;transform:none;">LinkedIn</div></div>
+          <div class="spc" style="opacity:.7;"><div class="spav" style="border-style:dashed;"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="spnm" style="color:var(--m);">Speaker Name</div><div class="sprl">Title / Role — TBA</div><div class="spli" style="opacity:.4;transform:none;">LinkedIn</div></div>
+          <div class="spc" style="opacity:.7;"><div class="spav" style="border-style:dashed;"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="spnm" style="color:var(--m);">Speaker Name</div><div class="sprl">Title / Role — TBA</div><div class="spli" style="opacity:.4;transform:none;">LinkedIn</div></div>
+        </div>
+      </div>
+      <div class="car-controls">
+        <div class="car-arrows">
+          <button class="car-btn" id="SP_PREV" onclick="spCar(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="car-btn" id="SP_NEXT" onclick="spCar(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+        <div class="car-dots" id="SP_DOTS"></div>
+        <button class="car-view-all" onclick="openModal('SP_MODAL')">View All</button>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- SPONSORS & PARTNERS -->
 <section id="sponsors" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Our Partners</span>
-      <h2 class="STT">Sponsors &amp; <span class="hl">Partners</span></h2>
-      <div class="DV"></div>
-      <p class="SD">Proudly supported by leading organizations in tech and cybersecurity.</p>
+    <div class="SH FU"><span class="EY">Our Network</span><h2 class="STT">Sponsors <span class="hl">&amp; Partners</span></h2><div class="DV"></div></div>
+    <!-- Organizers -->
+    <div class="FU" style="margin-bottom:3.5rem;">
+      <div class="sub-heading">Organizers</div>
+      <div class="org-grid">
+        <div class="org-card"><div class="org-av"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="org-nm">Organizer Name</div><div class="org-rl">Title / Role</div></div>
+        <div class="org-card"><div class="org-av"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="org-nm">Organizer Name</div><div class="org-rl">Title / Role</div></div>
+        <div class="org-card"><div class="org-av"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="28" r="18"/><path d="M10 70c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg></div><div class="org-nm">Organizer Name</div><div class="org-rl">Title / Role</div></div>
+      </div>
     </div>
-    <div class="spong STG">
-      <div class="spnc"><div class="spic">&#127970;</div><div class="spnn">Platinum Sponsor</div><div class="spti">Platinum</div></div>
-      <div class="spnc"><div class="spic">&#127760;</div><div class="spnn">Gold Partner Co.</div><div class="spti">Gold</div></div>
-      <div class="spnc"><div class="spic">&#128187;</div><div class="spnn">Tech Solutions Inc.</div><div class="spti">Silver</div></div>
-      <div class="spnc"><div class="spic">&#128274;</div><div class="spnn">SecureNet PK</div><div class="spti">Silver</div></div>
-      <div class="spnc"><div class="spic">&#128225;</div><div class="spnn">Digital Media Co.</div><div class="spti">Media Partner</div></div>
-      <div class="spnc"><div class="spic">&#127891;</div><div class="spnn">Edu Partner</div><div class="spti">Academic</div></div>
-      <div class="spnc"><div class="spic">&#9729;</div><div class="spnn">Cloud Partner</div><div class="spti">Cloud</div></div>
-      <div class="spnc"><div class="spic">&#129302;</div><div class="spnn">AI Partner</div><div class="spti">Community</div></div>
+    <!-- Sponsors carousel -->
+    <div class="FU" style="margin-bottom:3.5rem;">
+      <div class="sub-heading">Sponsors</div>
+      <div class="logo-car-wrap"><div class="logo-car-viewport"><div class="logo-car-track" id="SPON_TRACK">
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="12" width="30" height="20" rx="2"/><rect x="13" y="6" width="14" height="8" rx="1"/><rect x="16" y="22" width="8" height="9"/></svg></div><div class="logo-nm">Sponsor 01</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 6c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14S27.7 6 20 6zm0 2c1.5 0 4 4.2 4.5 10H15.5C16 12.2 18.5 8 20 8zm-5.8 1.5C12.5 11.3 11 14 11 17h-3c.2-3.3 2-6.2 4.4-7.9-.3.5-.7 1-.3 0 .2-.2.7-1.2.3-.6-.1 0 1.8-1.3 2-2 0 0 0 0 0 0zM8 19h3c.1 1.7.4 3.4 1 4.9C9.8 22.6 8.3 21 8 19zm4.2 6.5c1.2 1.4 2.8 2.6 4.5 3.2C15.3 27.4 14 25.2 13 22h-1.3c.1.9.3 2.5.5 3.5zm7.8 4.5c-1.5 0-4-4.2-4.5-10h9c-.5 5.8-3 10-4.5 10zm5.8-1.5c1.7-.6 3.3-1.8 4.5-3.2.2-1 .4-2.6.5-3.5H29c-1 3.2-2.3 5.4-3.7 6.7zM32 19c-.3 2-1.8 3.6-4 4.9.6-1.5.9-3.2 1-4.9h3zm-3-2h-3c-.1-1.7-.4-3.4-1-4.9C27.2 13.4 28.7 16 29 17zm-4.2-7.5c-.3-.5-.7-1.3-1-1.7 2.4 1.7 4.2 4.6 4.4 7.9h-3c0-3-1.5-5.7-3.2-7.4.4 1.2 2.8 1 2.8 1.2z"/></svg></div><div class="logo-nm">Sponsor 02</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 5l13 7.5v15L20 35 7 27.5v-15z" fill="none" stroke="var(--p)" stroke-width="2"/><path d="M20 13l7 4v8l-7 4-7-4v-8z"/></svg></div><div class="logo-nm">Sponsor 03</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="11" width="32" height="18" rx="3"/><circle cx="20" cy="20" r="5"/><circle cx="30" cy="15" r="2.5"/></svg></div><div class="logo-nm">Sponsor 04</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="28" height="18" rx="3"/><rect x="13" y="8" width="14" height="8" rx="2"/><rect x="16" y="28" width="8" height="6"/></svg></div><div class="logo-nm">Sponsor 05</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M9 27c0-5.5 3.5-9 7.5-10a7 7 0 0 1 14 1c4.5 1 6.5 4 6.5 7a5 5 0 0 1-5 5H13a5 5 0 0 1-4-3z"/></svg></div><div class="logo-nm">Sponsor 06</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 6l2.5 8H30l-6.5 4.5 2.5 8L20 22l-6 4.5 2.5-8L10 14h7.5z"/></svg></div><div class="logo-nm">Sponsor 07</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="32" height="24" rx="3"/><rect x="4" y="16" width="32" height="2"/><rect x="10" y="12" width="8" height="2" rx="1"/></svg></div><div class="logo-nm">Sponsor 08</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="15" r="7"/><path d="M8 35c0-6.6 5.4-12 12-12s12 5.4 12 12" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Sponsor 09</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M8 32l8-16 6 10 4-6 6 12H8z"/></svg></div><div class="logo-nm">Sponsor 10</div></div>
+      </div></div>
+      <div class="car-controls" style="margin-top:1.25rem;">
+        <div class="car-arrows">
+          <button class="car-btn" id="SPON_PREV" onclick="logoCar('SPON',-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="car-btn" id="SPON_NEXT" onclick="logoCar('SPON',1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+        <div class="car-dots" id="SPON_DOTS"></div>
+        <div></div>
+      </div></div>
+    </div>
+    <!-- Partners carousel -->
+    <div class="FU">
+      <div class="sub-heading">Partners</div>
+      <div class="logo-car-wrap"><div class="logo-car-viewport"><div class="logo-car-track" id="PART_TRACK">
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4l14 8v16L20 36 6 28V12z" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 01</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="28" height="22" rx="3" fill="none" stroke="var(--p)" stroke-width="2"/><path d="M14 22l4 4 8-10" stroke="var(--p)" stroke-width="2" fill="none"/></svg></div><div class="logo-nm">Partner 02</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4 4 36h32L20 4z" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 03</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="13" fill="none" stroke="var(--p)" stroke-width="2"/><path d="M14 20l4 4 8-8" stroke="var(--p)" stroke-width="2" fill="none"/></svg></div><div class="logo-nm">Partner 04</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="6" width="24" height="30" rx="2" fill="none" stroke="var(--p)" stroke-width="2"/><path d="M14 14h12M14 20h12M14 26h8" stroke="var(--p)" stroke-width="1.5"/></svg></div><div class="logo-nm">Partner 05</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 6v28M6 20h28" stroke="var(--p)" stroke-width="2"/><circle cx="20" cy="20" r="13" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 06</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 12h20M10 20h20M10 28h12" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 07</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5" fill="none" stroke="var(--p)" stroke-width="2"/><circle cx="28" cy="12" r="5" fill="none" stroke="var(--p)" stroke-width="2"/><circle cx="12" cy="28" r="5" fill="none" stroke="var(--p)" stroke-width="2"/><circle cx="28" cy="28" r="5" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 08</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="18" width="10" height="16" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/><rect x="15" y="12" width="10" height="22" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/><rect x="24" y="6" width="10" height="28" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 09</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 8v10M14 14l6 4 6-4" stroke="var(--p)" stroke-width="2"/><path d="M8 30c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="var(--p)" stroke-width="2" fill="none"/></svg></div><div class="logo-nm">Partner 10</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 6l8 14H12L20 6zM12 20l8 14 8-14H12z" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 11</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="10" height="10" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/><rect x="22" y="8" width="10" height="10" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/><rect x="8" y="22" width="10" height="10" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/><rect x="22" y="22" width="10" height="10" rx="1" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 12</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 34L20 6l14 28H6z" fill="none" stroke="var(--p)" stroke-width="2"/><path d="M13 26h14" stroke="var(--p)" stroke-width="1.5"/></svg></div><div class="logo-nm">Partner 13</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="7" fill="none" stroke="var(--p)" stroke-width="2"/><circle cx="26" cy="26" r="7" fill="none" stroke="var(--p)" stroke-width="2"/></svg></div><div class="logo-nm">Partner 14</div></div>
+        <div class="logo-card"><div class="logo-ic"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 20c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zm4 0h12M20 10v20" stroke="var(--p)" stroke-width="2" fill="none"/></svg></div><div class="logo-nm">Partner 15</div></div>
+      </div></div>
+      <div class="car-controls" style="margin-top:1.25rem;">
+        <div class="car-arrows">
+          <button class="car-btn" id="PART_PREV" onclick="logoCar('PART',-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="car-btn" id="PART_NEXT" onclick="logoCar('PART',1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+        <div class="car-dots" id="PART_DOTS"></div>
+        <div></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="SP">
   <div class="CON">
-    <div class="SH FU">
-      <span class="EY">Get In Touch</span>
-      <h2 class="STT">Contact <span class="hl">Us</span></h2>
-      <div class="DV"></div>
-    </div>
+    <div class="SH FU"><span class="EY">Get In Touch</span><h2 class="STT">Contact <span class="hl">Us</span></h2><div class="DV"></div></div>
     <div class="cgr">
       <div class="cin FL">
         <h3>Let&rsquo;s Connect</h3>
-        <div class="cit"><span class="cic">&#128231;</span><span>basimnawaz6@gmail.com</span></div>
-        <div class="cit"><span class="cic">&#128241;</span><span>+92 331 4610100</span></div>
+        <div class="cit"><span class="cic">&#128231;</span><span>cyberfest@techierarchy.com</span></div>
+        <div class="cit"><span class="cic">&#128241;</span><span>+92 300 0000000</span></div>
         <div class="cit"><span class="cic">&#128205;</span><span>Garrison University Lahore Campus, Lahore, Punjab, Pakistan</span></div>
         <div class="cit"><span class="cic">&#127760;</span><span>www.techierarchy.com</span></div>
         <div class="SOC">
@@ -418,8 +598,8 @@ section{position:relative;}
       </div>
       <div class="cfrm FU">
         <h3>Send a Message</h3>
-        <div class="tbox" style="padding:0;overflow:hidden;background:transparent;border:none;min-height:500px;">
-          <iframe data-tally-src="https://tally.so/embed/mD1jZl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form" style="border-radius:12px;border:1px solid var(--br);background:var(--bc);"></iframe>
+        <div style="min-height:460px;border-radius:12px;overflow:hidden;border:1px solid var(--br);">
+          <iframe data-tally-src="https://tally.so/embed/mD1jZl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="460" frameborder="0" title="Contact Form" style="display:block;border-radius:12px;background:rgba(216,153,255,.03);"></iframe>
           <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
       </div>
@@ -427,72 +607,35 @@ section{position:relative;}
     <div class="fbot">
       <div class="flogo">CYBER FEST 2026</div>
       <div class="fcop">
-        &copy; 2026 Tech Hierarchy. All rights reserved.
-        <br><span style="font-size:.75rem;color:var(--m);">Want a site like this? Get in touch with <button onclick="openModal()" class="creator-link">Hammad Akram</button></span>
-      </div>
-      <div class="fls">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#speakers">Speakers</a><a href="#contact">Contact</a>
+        &copy; 2026 Tech Hierarchy. All rights reserved.<br>
+        <span style="font-size:.73rem;">Want a site like this? Get in touch with <button onclick="openModal('CREATOR_MODAL')" class="creator-link">Hammad Akram</button></span>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-// CURSOR
-const C=document.getElementById('CUR'),R=document.getElementById('CURR');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+'px';C.style.top=my+'px';},{passive:true});
-(function A(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;R.style.left=rx+'px';R.style.top=ry+'px';requestAnimationFrame(A);})();
-document.querySelectorAll('a,button,.spc,.spnc,.ac,.ec,.sbox').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
-});
-
-// NAV SCROLL
-const N=document.getElementById('NAV');
-window.addEventListener('scroll',()=>N.classList.toggle('sc',scrollY>50),{passive:true});
-
-// MOBILE MENU
-function TM(){document.getElementById('MNAV').classList.toggle('open');}
-function CM(){document.getElementById('MNAV').classList.remove('open');}
-
-// COUNTDOWN
-function tick(){
-  const t=new Date('2026-04-18T09:00:00+05:00'),d=Math.max(0,t-Date.now());
-  const p=n=>String(n).padStart(2,'0');
-  document.getElementById('DD').textContent=p(Math.floor(d/864e5));
-  document.getElementById('DH').textContent=p(Math.floor(d%864e5/36e5));
-  document.getElementById('DM').textContent=p(Math.floor(d%36e5/6e4));
-  document.getElementById('DS').textContent=p(Math.floor(d%6e4/1e3));
-}
-tick();setInterval(tick,1000);
-
-// PARTICLES
-const PT=document.getElementById('PTS');
-['rgba(0,245,255,.5)','rgba(123,47,190,.5)','rgba(255,0,110,.35)'].forEach(c=>{
-  for(let i=0;i<6;i++){
-    const p=document.createElement('div');p.className='pt';
-    const s=Math.random()*3.5+1;
-    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${c};animation-duration:${Math.random()*14+9}s;animation-delay:${Math.random()*12}s;`;
-    PT.appendChild(p);
-  }
-});
-
-// SCROLL REVEAL
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('V');obs.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.FU,.FL').forEach(el=>obs.observe(el));
-document.querySelectorAll('.STG').forEach(w=>{
-  Array.from(w.children).forEach((ch,i)=>{
-    const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){setTimeout(()=>ch.classList.add('V'),i*90);o.unobserve(x.target);}});},{threshold:.08});
-    o.observe(ch);
-  });
-});
-</script>
-<!-- CREATOR MODAL -->
-<div class="modal-overlay" id="MODAL" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-box" id="MODAL_BOX">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&#x2715;</button>
-<img 
+<!-- MODALS -->
+<!-- Speakers All -->
+<div class="modal-overlay" id="SP_MODAL">
+  <div class="modal-box lg">
+    <button class="modal-close" onclick="closeModal('SP_MODAL')">&#x2715;</button>
+    <div class="modal-ttl">All Speakers</div>
+    <div class="modal-sp-grid" id="SP_ALL_GRID"></div>
+  </div>
+</div>
+<!-- Gallery All -->
+<div class="modal-overlay" id="GAL_MODAL">
+  <div class="modal-box lg">
+    <button class="modal-close" onclick="closeModal('GAL_MODAL')">&#x2715;</button>
+    <div class="modal-ttl">Cyber Fest 2025 &mdash; Full Gallery</div>
+    <div class="modal-gal-grid" id="GAL_ALL_GRID"></div>
+  </div>
+</div>
+<!-- Creator -->
+<div class="modal-overlay" id="CREATOR_MODAL">
+  <div class="modal-box sm">
+    <button class="modal-close" id="CREATOR_CLOSE" onclick="closeModal('CREATOR_MODAL')">&#x2715;</button>
+    <img 
   src="hammad.jpeg" 
   alt="A descriptive text for the image"
   style="
@@ -503,13 +646,13 @@ document.querySelectorAll('.STG').forEach(w=>{
     border-radius: 50%;
     object-fit: cover;
   "
->
-    <div class="modal-name" id="modal-title">Hammad Akram</div>
-    <div class="modal-role">Web Developer &nbsp;|&nbsp; Creator of this Site</div>
+  >
+    <div class="modal-name">Hammad Akram</div>
+    <div class="modal-role">Web Developer &nbsp;&bull;&nbsp; Creator of this Site</div>
     <div class="modal-divider"></div>
-    <div class="modal-section-title">About Me</div>
-    <p class="modal-text">I am a passionate frontend developer with 2 years of experience crafting websites with HTML, CSS, and JavaScript and full stack websites. I believe in learning by doing, and I have built over 70 projects to hone my skills. This website for Tech Hierarchy is my first major public project, and I&rsquo;m proud to contribute to this community.</p>
-    <div class="modal-section-title">Get In Touch</div>
+    <div class="modal-stitle">About Me</div>
+    <p class="modal-text">I am a passionate frontend developer with 2 years of experience crafting websites with HTML, CSS, and JavaScript, as well as full-stack applications. I believe in learning by doing, and I have built over 70 projects to hone my skills. This website for Tech Hierarchy is my first major public project, and I&rsquo;m proud to contribute to this community.</p>
+    <div class="modal-stitle">Get In Touch</div>
     <div class="modal-contacts">
       <div class="modal-contact-item"><span class="mci">&#128231;</span><a href="mailto:hamad.akram70@gmail.com">hamad.akram70@gmail.com</a></div>
       <div class="modal-contact-item"><span class="mci">&#128241;</span><a href="tel:+923009715435">+92 300 9715435</a></div>
@@ -518,23 +661,197 @@ document.querySelectorAll('.STG').forEach(w=>{
 </div>
 
 <script>
-// MODAL
-function openModal(){
-  const o=document.getElementById('MODAL');
-  o.classList.add('open');
+// ===== PRELOADER =====
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('done'), 2600);
+});
+
+// ===== CURSOR =====
+const C = document.getElementById('CUR'), R = document.getElementById('CURR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+'px';C.style.top=my+'px';},{passive:true});
+(function A(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;R.style.left=rx+'px';R.style.top=ry+'px';requestAnimationFrame(A);})();
+document.addEventListener('mouseover', e=>{document.body.classList.toggle('ch',!!e.target.closest('a,button,.spc,.spnc,.ac,.ec,.sbox,.SL,.gal-item,.logo-card,.org-card'));});
+
+// ===== NAV =====
+const NAV=document.getElementById('NAV');
+window.addEventListener('scroll',()=>NAV.classList.toggle('sc',scrollY>50),{passive:true});
+function TM(){document.getElementById('MNAV').classList.toggle('open');}
+function CM(){document.getElementById('MNAV').classList.remove('open');}
+
+// ===== COUNTDOWN =====
+function tick(){
+  const t=new Date('2026-04-18T09:00:00+05:00'),d=Math.max(0,t-Date.now());
+  const p=n=>String(n).padStart(2,'0');
+  document.getElementById('DD').textContent=p(Math.floor(d/864e5));
+  document.getElementById('DH').textContent=p(Math.floor(d%864e5/36e5));
+  document.getElementById('DM').textContent=p(Math.floor(d%36e5/6e4));
+  document.getElementById('DS').textContent=p(Math.floor(d%6e4/1e3));
+}
+tick();setInterval(tick,1000);
+
+// ===== PARTICLES =====
+const PT=document.getElementById('PTS');
+['rgba(216,153,255,.5)','rgba(93,26,127,.65)','rgba(176,112,224,.35)'].forEach(c=>{
+  for(let i=0;i<6;i++){
+    const p=document.createElement('div');p.className='pt';
+    const s=Math.random()*3.5+1;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${c};animation-duration:${Math.random()*14+9}s;animation-delay:${Math.random()*12}s;`;
+    PT.appendChild(p);
+  }
+});
+
+// ===== SCROLL REVEAL =====
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('V');obs.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.FU,.FL').forEach(el=>obs.observe(el));
+document.querySelectorAll('.STG').forEach(w=>{
+  Array.from(w.children).forEach((ch,i)=>{
+    const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){setTimeout(()=>ch.classList.add('V'),i*90);o.unobserve(x.target);}});},{threshold:.08});
+    o.observe(ch);
+  });
+});
+
+// ===== MODAL SYSTEM =====
+function openModal(id){
+  const m=document.getElementById(id);
+  m.classList.add('open');
   document.body.style.overflow='hidden';
-  setTimeout(()=>document.getElementById('MODAL_BOX').querySelector('.modal-close').focus(),350);
+  C.style.zIndex='10004';R.style.zIndex='10003';
+  if(id==='SP_MODAL') buildSpModal();
+  if(id==='GAL_MODAL') buildGalModal();
+  setTimeout(()=>m.querySelector('.modal-close').focus(),350);
 }
-function closeModal(){
-  document.getElementById('MODAL').classList.remove('open');
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
   document.body.style.overflow='';
+  C.style.zIndex='10001';R.style.zIndex='10000';
 }
-document.getElementById('MODAL').addEventListener('click',function(e){
-  if(e.target===this) closeModal();
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id);});
 });
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') closeModal();
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));
 });
+
+// ===== SPEAKER CAROUSEL =====
+let spIdx=0;
+const SP_TRACK=document.getElementById('SP_TRACK');
+function getSpVisible(){return window.innerWidth<=480?1:window.innerWidth<=900?2:4;}
+function spTotal(){return SP_TRACK.children.length;}
+function spMaxIdx(){return Math.max(0,spTotal()-getSpVisible());}
+function spUpdate(){
+  const visible=getSpVisible();
+  const gap=16;
+  const vw=SP_TRACK.parentElement.offsetWidth;
+  const cardW=(vw-(visible-1)*gap)/visible;
+  Array.from(SP_TRACK.children).forEach(c=>{c.style.flex=`0 0 ${cardW}px`;});
+  SP_TRACK.style.transform=`translateX(-${spIdx*(cardW+gap)}px)`;
+  document.getElementById('SP_PREV').disabled=spIdx===0;
+  document.getElementById('SP_NEXT').disabled=spIdx>=spMaxIdx();
+  renderDots('SP_DOTS',spIdx,spMaxIdx()+1,i=>{spIdx=i;spUpdate();});
+}
+function spCar(dir){spIdx=Math.max(0,Math.min(spMaxIdx(),spIdx+dir));spUpdate();}
+// Auto-advance speakers every 5s
+setInterval(()=>{spIdx=spIdx>=spMaxIdx()?0:spIdx+1;spUpdate();},5000);
+
+// Build speakers all modal
+function buildSpModal(){
+  const g=document.getElementById('SP_ALL_GRID');
+  g.innerHTML='';
+  Array.from(SP_TRACK.children).forEach(c=>{
+    const cl=c.cloneNode(true);
+    cl.style.opacity='1';cl.style.flex='';cl.style.transform='';
+    g.appendChild(cl);
+  });
+}
+
+// ===== LOGO CAROUSELS (sponsors / partners) =====
+const logoState={SPON:{idx:0},PART:{idx:0}};
+function getLogoVisible(){return window.innerWidth<=480?1:window.innerWidth<=900?2:4;}
+function logoUpdate(id){
+  const track=document.getElementById(id+'_TRACK');
+  const visible=getLogoVisible();
+  const gap=16;
+  const vw=track.parentElement.offsetWidth;
+  const cardW=(vw-(visible-1)*gap)/visible;
+  Array.from(track.children).forEach(c=>{c.style.flex=`0 0 ${cardW}px`;});
+  const total=track.children.length;
+  const maxIdx=Math.max(0,total-visible);
+  const idx=logoState[id].idx;
+  track.style.transform=`translateX(-${idx*(cardW+gap)}px)`;
+  document.getElementById(id+'_PREV').disabled=idx===0;
+  document.getElementById(id+'_NEXT').disabled=idx>=maxIdx;
+  renderDots(id+'_DOTS',idx,Math.ceil(total/visible),i=>{logoState[id].idx=i*visible;logoUpdate(id);});
+}
+function logoCar(id,dir){
+  const track=document.getElementById(id+'_TRACK');
+  const total=track.children.length;
+  const maxIdx=Math.max(0,total-getLogoVisible());
+  logoState[id].idx=Math.max(0,Math.min(maxIdx,logoState[id].idx+dir));
+  logoUpdate(id);
+}
+// Auto-advance carousels
+setInterval(()=>{
+  ['SPON','PART'].forEach(id=>{
+    const track=document.getElementById(id+'_TRACK');
+    const total=track.children.length;
+    const maxIdx=Math.max(0,total-getLogoVisible());
+    logoState[id].idx=logoState[id].idx>=maxIdx?0:logoState[id].idx+1;
+    logoUpdate(id);
+  });
+},4000);
+
+// ===== DOT RENDERER =====
+function renderDots(containerId,activeIdx,total,onClick){
+  const c=document.getElementById(containerId);
+  if(!c)return;
+  c.innerHTML='';
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='car-dot'+(i===activeIdx?' active':'');
+    d.addEventListener('click',()=>onClick(i));
+    c.appendChild(d);
+  }
+}
+
+// ===== GALLERY MODAL =====
+const GAL_LABELS=['Session','Keynote','CTF','Awards','Networking','Venue','Community','Workshop','Opening','Panel','Registration','Q&A Session','Hands-on Lab','Closing','Break'];
+const GAL_PATHS=[
+  'M4 8h40v32H4z M4 18h40 M14 8v10 M24 24m-6 0a6 6 0 1 1 12 0 6 6 0 0 1-12 0',
+  'M24 18a9 9 0 1 0 0-18 9 9 0 0 0 0 18M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16',
+  'M6 10h36v28H6z M16 24h16 M16 30h10 M10 18h28',
+  'M24 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 18h12z',
+  'M6 14h36v26H6z M16 8h16v8H16z M24 14v6',
+  'M12 36V20l12-12 12 12v16H28V28h-8v8H12z',
+  'M16 20a7 7 0 1 0 0-14 7 7 0 0 0 0 14m16 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14M4 40c0-6.6 5.4-12 12-12h16c6.6 0 12 5.4 12 12',
+  'M8 8h32v32H8z M16 24h16 M24 16v16',
+  'M4 20h40 M20 4v40 M20 4a16 16 0 0 1 16 16 16 16 0 0 1-16 16 16 16 0 0 1-16-16 16 16 0 0 1 16-16z',
+  'M6 10h36v24H6z M6 20h36 M18 10v24',
+  'M24 8v10 M18 14l6 4 6-4 M8 34c0-8 7.2-14 16-14s16 6 16 14',
+  'M10 24h28 M10 16h28 M10 32h20',
+  'M8 8h12v12H8z M28 8h12v12H28z M8 28h12v12H8z M28 28h12v12H28z',
+  'M24 8a2 2 0 1 1 0 4 2 2 0 0 1 0-4M14 30h20l-10-18z',
+  'M8 10h32v28H8z M16 20l4 4 8-10'
+];
+function buildGalModal(){
+  const g=document.getElementById('GAL_ALL_GRID');
+  g.innerHTML='';
+  for(let i=0;i<15;i++){
+    const div=document.createElement('div');
+    div.className='modal-gal-item';
+    div.innerHTML=`<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="${GAL_PATHS[i%GAL_PATHS.length]}" stroke="rgba(216,153,255,.5)" stroke-width="1.5"/></svg>`;
+    const lbl=document.createElement('div');
+    lbl.style.cssText='position:absolute;bottom:.5rem;left:.6rem;font-size:.58rem;color:rgba(216,153,255,.5);font-family:var(--fd);letter-spacing:.1em;text-transform:uppercase;';
+    lbl.textContent=GAL_LABELS[i];
+    div.appendChild(lbl);
+    g.appendChild(div);
+  }
+}
+
+// ===== INIT + RESIZE =====
+function initAll(){spUpdate();logoUpdate('SPON');logoUpdate('PART');}
+window.addEventListener('resize',initAll);
+initAll();
 </script>
 </body>
 </html>
